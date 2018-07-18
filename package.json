@@ -1,0 +1,26 @@
+{
+  "name": "flea_market",
+  "version": "1.0.0",
+  "description": "diplom project",
+  "main": "index.js",
+  "dependencies": {
+    "parcel": "^1.9.7",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lyudmi/flea_market.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lyudmi/flea_market/issues"
+  },
+  "homepage": "https://github.com/Lyudmi/flea_market#readme"
+}
