@@ -5,8 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet"> 
-	<link rel="stylesheet" href="css/style.css"> 
-	<link rel="stylesheet" type="text/css" href="css/weather_2.css">
+	<link rel="stylesheet" href="./css/style.css"> 
+	<link rel="stylesheet" type="text/css" href="./css/weather_2.css">
 	
 	<title>Weather</title>
 </head>
@@ -14,41 +14,41 @@
 	<nav class="side-navigation">
 		<ul>
 			<li >
-				<a href="index.html" class="selected" data-menu="index">
-				 <img src="img/logo22.png" alt="logo" width="160">
+				<a href="./index.html" class="selected" data-menu="index">
+				 <img src="./img/logo22.png" alt="logo" width="160">
 				</a>
 			</li>
 			<li>
-				<a href="index.html"  data-menu="index">
-					<img src="img/home.png" alt="" class="nc-icon outline">
+				<a href="./index.html"  data-menu="index">
+					<img src="./img/home.png" alt="" class="nc-icon outline">
 					Home
 				</a>
 			</li>
 			<li>
-				<a class="selected" href="#" data-menu="weather">
-					<img src="img/weather.png" alt="" class="nc-icon outline">
+				<a class="selected" href="./weather.html" data-menu="weather">
+					<img src="./img/weather.png" alt="" class="nc-icon outline">
 					Weather
 					
 				</a>
 			</li>
 
 			<li>
-				<a href="map.html" data-menu="map">
-					<img src="img/map.png" alt="" class="nc-icon outline">
+				<a href="./map.html" data-menu="map">
+					<img src="./img/map.png" alt="" class="nc-icon outline">
 					Map
 				</a>
 			</li>
 
 			<li>
-				<a href="task.html" data-menu="task">
-					<img src="img/task.png" alt="" class="nc-icon outline">
+				<a href="./task.html" data-menu="task">
+					<img src="./img/task.png" alt="" class="nc-icon outline">
 					Task
 				</a>
 			</li>
 
 			<li>
-				<a href="habits.html" data-menu="habits">
-					<img src="img/habits.png" alt="" class="nc-icon outline">
+				<a href="./habits.html" data-menu="habits">
+					<img src="./img/habits.png" alt="" class="nc-icon outline">
 					Habits tracker
 				</a>
 			</li>
@@ -63,7 +63,7 @@
 					<div id="weather_today">
 						<h3 class="weekday"></h3>
 						<h3 class="date"></h3>
-						<img class="weather_icon" src="">
+						<img class="weather_icon">
 						<h3 class="description"></h3>
 						<h2 class="temp">
 							<span class="temp_max"></span> 
@@ -83,8 +83,8 @@
 								<span class="wind"></span>
 							</span>
 						</h3>
-				</div>
-				<div class="left">
+				    </div>
+				  <div class="left">
 					<div id ="location_block">
 						<div class="loc_wrp">
 							<h2 id="city"></h2>
@@ -95,60 +95,60 @@
 					<input type="text" id="input_city" placeholder="Enter your city" autofocus="">
 					<button id="weather">Get weather</button>
 					<div id="error" class="error done"></div>
-				</div>
-				<div class="weather_forecast">
-					<div class="weather_item">
+				    </div>
+				    <div class="weather_forecast">
+					    <div class="weather_item">
 						<h3 class="weekday"></h3>
 						<h3 class="date"></h3>
-						<img class="weather_icon" src="">
+						<img class="weather_icon">
 						<h3 class="temp">
 							<span class="temp_max"></span> 
 							<span class="temp_min"></span>
 						</h3>
-					</div>
-					<div class="weather_item">
+					    </div>
+					    <div class="weather_item">
 						<h3 class="weekday"></h3>
 						<h3 class="date"></h3>
-						<img class="weather_icon" src="">
+						<img class="weather_icon" >
 						<h3 class="temp">
 							<span class="temp_max"></span> 
 							<span class="temp_min"></span>
 						</h3>
-					</div>
-					<div class="weather_item">
+					    </div>
+					    <div class="weather_item">
 						<h3 class="weekday"></h3>
 						<h3 class="date"></h3>
-						<img class="weather_icon" src="">
+						<img class="weather_icon" >
 						<h3 class="temp">
 							<span class="temp_max"></span> 
 							<span class="temp_min"></span>
 						</h3>
-					</div>
-					<div class="weather_item">
+					    </div>
+					    <div class="weather_item">
 						<h3 class="weekday"></h3>
 						<h3 class="date"></h3>
-						<img class="weather_icon" src="">
+						<img class="weather_icon" >
 						<h3 class="temp">
 							<span class="temp_max"></span>
 							<span class="temp_min"></span>
 						</h3>
-					</div>
-					<div class="weather_item">
+					    </div>
+					    <div class="weather_item">
 						<h3 class="weekday"></h3>
 						<h3 class="date"></h3>
-						<img class="weather_icon" src="">
+						<img class="weather_icon">
 						<h3 class="temp">
 							<span class="temp_max"></span>
 							<span class="temp_min"></span>
 						</h3>
-					</div>
-				</div>
+					    </div>
+				        </div> 
 					
-			</div>		
+			    </div>		
 			</header>		
 		</section> <!-- .cd-section -->
 	</main> <!-- .cd-main -->
 
-<script src="js/weather_2.js" type="text/javascript"></script>
+<script src="./js/weather_2.js" ></script>
 </body>
 </html>
