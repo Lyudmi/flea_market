@@ -54,12 +54,16 @@ class QuoteRandom extends React.Component{
   render(){
     return(
       <div className="container">
-   
-        <h2 className="quote">{this.state.author.quote} 
-        </h2>
+      <p className="text_quote">
+        <span className="speech_mark_large">"</span>
+          {this.state.author.quote}
+        <span className="speech_mark_large">"</span>
+      </p>
+        {/* <q className="quote">{this.state.author.quote} 
+        </q> */}
         <h5 className="quote">"{this.state.author.author}" 
         </h5>
-        <h5>category - {this.state.author.cat}</h5>
+        {/* <h5>category - {this.state.author.cat}</h5> */}
         <button onClick={this.decideClick}>Next Quote</button>
       </div>
     )

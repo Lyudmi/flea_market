@@ -323,7 +323,7 @@ a {
     line-height: 1.6;
     font-size: 1.8rem;
 }
-}
+
 
 /* -------------------------------- 
 
@@ -338,10 +338,6 @@ a {
   visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transformfont-size: 1.4rem;: translateZ(0);
-  -o-transform: translateZ(0);
   transform: translateZ(0);
 }
 
@@ -417,14 +413,29 @@ a {
     box-sizing: border-box;
     text-align: center;
 } 
-#quote .container h2, #quote .container h5{
-    margin: 0 0 10px;
+#quote .text_quote, #quote .container h5{
+    margin: 0;
     padding: 0;
     color: beige;
 }
-#quote .container h2{
-    font-size: 18px;
+#quote .text_quote{
+  font-style: italic;
+  font-size:1.6rem;
+  line-height: 24px;
+  width: 100%;
 }
+#quote .container .speech_mark_large{
+  color: rgb(187, 112, 116);
+  font-size: 6rem;
+  vertical-align: top;
+  top: 8px;
+  position: relative;
+
+}
+#quote .container h5{
+  color: rgb(187, 112, 116);
+}
+
 #quote .container button{
 display: inline-block;
  border:none;
@@ -435,8 +446,8 @@ display: inline-block;
  width: auto;
  height: auto;
  font-size: 16px;
- padding: 10px 20px;
- margin-top: 20px;
+ padding: 5px 10px ;
+ margin-top: 10px;
  box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D,0 2px 4px 0 #D4D4D4;
  -moz-box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D,0 2px 4px 0 #D4D4D4;
 }
@@ -447,10 +458,11 @@ display: inline-block;
 -------------------------------- */
 #mymap {
     height: 100%;
-    width: 700px;
-    position: inherit !important;
+    width: 100%;
+    position: fixed !important;
      
   }
+  
 .controls {
   margin-top: 10px;
   border: 1px solid transparent;
@@ -464,7 +476,7 @@ display: inline-block;
 
 #pac-input {
   background-color: #fff;
-  font-family: Roboto;
+  font-family: "PT Sans", sans-serif;
   font-size: 15px;
   font-weight: 300;
   margin-left: 12px;
@@ -478,7 +490,7 @@ display: inline-block;
 }
 
 .pac-container {
-  font-family: Roboto;
+  font-family: "PT Sans", sans-serif;
 }
 
 #type-selector {
@@ -488,7 +500,7 @@ display: inline-block;
 }
 
 #type-selector label {
-  font-family: Roboto;
+  font-family: "PT Sans", sans-serif;
   font-size: 13px;
   font-weight: 300;
  }
