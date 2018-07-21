@@ -57,9 +57,9 @@ class LocalStorageApi {
     removeStorageItem(){
         for (let i = 0; i < localStorage.length; i++) {
             let key = localStorage.key(i);
-            // console.log(key);
+             console.log(key);
             let keyValue =  JSON.parse(localStorage.getItem(key)); 
-            // console.log(keyValue);
+             console.log(keyValue);
             for (let j in keyValue) {
                 if (Date.now() - keyValue[j].timestamp > 1000 * 60 * 20) {
                     localStorage.removeItem(key);

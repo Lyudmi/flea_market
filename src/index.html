@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet"> 
 	<link rel="stylesheet" href="./css/style.css"> 
+	<link rel="stylesheet" href="./css/main.css">
 	
   	
 	<title>Flea market</title>
@@ -18,89 +19,84 @@
 				</a>
 			</li>
 			<li>
-				<a href="./index.html" class="selected" data-menu="index">
-					<img src="./img/home.png" alt="" class="nc-icon outline">
-					Home
+				<a href="./todo.html" data-menu="task">
+					<img src="./img/task.png" alt="" class="nc-icon outline">
+					Todo
 				</a>
 			</li>
-
+			<li>
+				<a href="./habits.html" data-menu="habits">
+					<img src="./img/habits.png" alt="" class="nc-icon outline">
+					Habit
+				</a>
+			</li>
 			<li>
 				<a href="./weather.html" data-menu="weather">
 					<img src="./img/weather.png" alt="" class="nc-icon outline">
 					Weather
 				</a>
 			</li>
-
 			<li>
 				<a href="./map.html" data-menu="map">
 					<img src="./img/map.png" alt="" class="nc-icon outline">
 					Map
 				</a>
 			</li>
+			<li>
+				<a href="./about.html"  data-menu="index">
+					<img src="./img/about.png" alt="" class="nc-icon outline">
+					About
+				</a>
+			</li>
+	
 
-			<li>
-				<a href="./task.html" data-menu="task">
-					<img src="./img/task.png" alt="" class="nc-icon outline">
-					Task
-				</a>
-			</li>
-			<li>
-				<a href="./habits.html" data-menu="habits">
-					<img src="./img/habits.png" alt="" class="nc-icon outline">
-					Habits tracker
-				</a>
-			</li>
+			
+			
 		</ul>
 	</nav> 
 	
 	<main class="cd-main">
 		<section class="cd-section index visible">
-			<header>
-				<div class="cd-content">
-					<div class="preloader done">
-						<span class="preloader done" id="loader"></span>	
-					</div>
-
-					<div class="cd-weather">
-						<div id="set_date">
-							<div class="times">
-								<h1 id="time"></h1>
-							</div>
-							<div class="time-day">	
-								<h3 id="day"></h3>
-							</div>
-					</div>
-					<div id="set_weather">
-						<div id ="location_block">
-							<h3 >
-								<span id="city"></span> ,
-								<span id="country"></span>
-							</h3>
-						</div>
-						<div id="weather_today">
-							<img class="weather_icon">
-							<h2 class="temp">
-								<span class="temp_max"></span> 
-								<span class="temp_min"></span>
-							</h2>
-							<h3 class="description"></h3>
-						</div>				
-					</div>
-				</div>
-								
-				<div class="cd-quote">
-					<div class="box">
-						<div id="quote"></div>
-					</div>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae illo veritatis ea deserunt aliquam blanditiis, voluptas optio, voluptate ut accusamus veniam numquam, porro! Cum minima a molestiae, similique voluptate, perferendis vel iusto quam suscipit delectus dolore ducimus possimus illo molestias voluptas labore optio consequuntur sapiente pariatur libero nam temporibus. Laudantium!
-				</div>
-				
-				
+			<div class="preloader done">
+				<span class="preloader done" id="loader"></span>	
 			</div>
-			</header>
+
+			<div class="cd-left">
+				<div id="set_date">
+					<div class="times">
+						<h1 id="time"></h1>
+					</div>
+					<div class="time-day">	
+						<h3 id="day"></h3>
+					</div>
+				</div>
+				<div id="set_weather">
+					<div id ="location_block">
+						<h3 >
+							<span id="city"></span> ,
+							<span id="country"></span>
+						</h3>
+					</div>
+					<div id="weather_today">
+						<img class="weather_icon">
+						<h2 class="temp">
+							<span class="temp_max"></span> 
+							<span class="temp_min"></span>
+						</h2>
+						<h3 class="description"></h3>
+					</div>				
+				</div>
+			</div>
+								
+			<div class="cd-right">
+				<div class="box">
+					<div id="quote"></div>
+				</div>
+				Lorem ipsum dolor!
+			</div>
 		</section> <!-- .cd-section -->
 	</main> <!-- .cd-main -->
-	<script src="./js/weather.js" type="text/javascript"></script>
+	<script src="./js/main.js" type="text/javascript"></script>
 	<script src="./js/index.jsx" ></script>
 </body>
 </html>

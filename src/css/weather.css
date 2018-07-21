@@ -1,17 +1,17 @@
-* {
+/* * {
 	box-sizing: border-box;
 	margin: 0px;
-}
+} */
 
 body {
 	box-sizing: border-box;
-	background-image: url("../img/weather_back.jpg");
+	/* background-image: url("../img/weather_back.jpg"); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	color: white;
 	margin: 0px;
-	font-size: 0;
+	/* font-size: 0; */
 	font-family: "Open Sans", sans-serif;
 }
 
