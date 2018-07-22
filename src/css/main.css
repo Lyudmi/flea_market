@@ -91,10 +91,10 @@ content weather and data
 
 /*----------------------------- content cd right---------------- */
 .cd-right{
-    width: 55%;
+    width: 59%;
     display: inline-block;
     color: white;
-    margin-left: 25px;
+    /* margin-left: 25px; */
     padding: 0 35px;
     line-height: 1.6;
     font-size: 1.8rem;

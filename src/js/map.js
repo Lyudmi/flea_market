@@ -6,7 +6,7 @@ window. initAutocomplete= function(lat=49.5832541, lng=34.489807) {
       center: {lat: this.lat, lng: this.lng},
       // center: {lat: 49.5832541, lng: 34.489807},
       zoom: 14,
-      mapTypeId: 'roadmap'//відображає типовий перегляд дорожньої карти. 
+      mapTypeId: 'roadmap'//Displays a typical roadmap view.
     });
 
     // Create the search box and link it to the UI element.

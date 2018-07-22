@@ -1,7 +1,9 @@
 #mymap {
-    height: 100%;
-    width: 100%;
-    position: fixed !important;
+  height: 100%;
+  width: 100%;
+  margin-left: 2em;
+  position: relative;
+  border-radius: 10px;
      
   }
   
