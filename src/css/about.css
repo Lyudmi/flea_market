@@ -1,0 +1,106 @@
+.cd-section.about h1 {
+    color: rgb(250, 249, 249);
+	font-family: 'PT Sans';
+	font-size: 55px;
+	font-weight: 900;
+	margin: 15px 0 0 0;
+	text-transform: uppercase;
+    letter-spacing: 7.2px;
+    text-align: center;
+}
+
+.for_what {
+    color: rgb(250, 249, 249);
+	font-family: 'PT Sans';
+	font-size: 18px;
+	font-weight: 400;
+	margin: 30px 0 0 0;
+	/* text-transform: uppercase; */
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 35px;
+    font-weight: bold;
+    font-style:italic;
+}
+
+.img_m {
+    display: inline-block;
+    width: 100%;
+}
+
+.logo_m {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: -50px; 
+}
+
+.motivation {
+    color: rgb(65, 71, 71);
+	font-family: 'PT Sans';
+	font-size: 24px;
+	font-weight: 400;
+	margin: 30px 0 0 0;
+	/* text-transform: uppercase; */
+    letter-spacing: 1px;
+    line-height: 35px;
+    margin-left: 15px;
+    width: 50%;
+}
+
+.what_dw_have {
+    color: rgba(0, 0, 0, 0.37);
+	font-family: 'PT Sans';
+	font-size: 24px;
+	font-weight: 400;
+	margin: 30px 0 0 0;
+	/* text-transform: uppercase; */
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 35px;
+    font-weight: bold;
+}
+.name {
+    color: rgb(250, 249, 249);
+	font-family: 'PT Sans';
+	font-size: 23px;
+	font-weight: 400;
+	margin: 30px 0 0 0;
+	/* text-transform: uppercase; */
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 35px;
+    font-weight: bold;
+}
+.explain {
+    color: rgba(0, 0, 0, 0.479);
+	font-family: 'PT Sans';
+	font-size: 18px;
+	font-weight: 400;
+	margin: 30px 0 0 0;
+	/* text-transform: uppercase; */
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 30px;
+    width: 30%;
+    font-weight: bold;
+}
+.ps {
+    color: rgb(250, 249, 249);
+	font-family: 'PT Sans';
+	font-size: 18px;
+	font-weight: 400;
+	margin: 100px 0 0 0;
+	/* text-transform: uppercase; */
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 35px;
+    font-weight: bold;
+    font-style:italic;
+}
+
+table {
+    display: block;
+    margin: 0 auto;
+    padding-top: 50px;
+    width: 100%; 
+}
