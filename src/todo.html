@@ -53,42 +53,39 @@
 			</li>
 		</ul>		
 	</nav> 
-	
-	<main class="cd-main">
-		<section class="cd-section task">
-			<div class="content">
-				<section class="tasks_header">
-					<div id="addTaskBar">
-						<h1>Todo List</h1>
-						<input type="date" id="inpDate" name="" placeholder="date">
-						<input type="text" id="addtask" placeholder="Add new task" required="">
-						<button id="addbtn"><i class="fas fa-plus"></i></button>
-					</div> <!-- #addTaskBar -->
-					<div class="calendar_wrp">
-						<table id="calendar2">
-							<thead>
-								<tr><th><i class="fas fa-arrow-circle-left"></i></th>
-									<th id="monthSet" colspan="5"></th>
-									<th><i class="fas fa-arrow-circle-right"></i></th>
-								</tr>
-								<tr>
-									<th>Mon</th>
-									<th>Tue</th>
-									<th>Wed</th>
-									<th>Thu</th>
-									<th>Fri</th>
-									<th>Sat</th>
-									<th>Sun</th>
-								</tr>
-							</thead>
-							<tbody id="daySet"></tbody>
-						</table>
-					</div><!-- .calendar_wrp -->
-				</section><!-- .tasks_header -->
-				<section id="todo_wrp"></section>
-			</div>	<!-- .content -->		
-		</section> <!-- .cd-section -->
-	</main> <!-- .cd-main -->
+	<section class="cd-section task">
+		<div class="content">
+			<section class="tasks_header">
+				<div id="addTaskBar">
+					<h1>Todo List</h1>
+					<input type="date" id="inpDate" name="" placeholder="date">
+					<input type="text" id="addtask" placeholder="Add new task" required="">
+					<button id="addbtn"><i class="fas fa-plus"></i></button>
+				</div> <!-- #addTaskBar -->
+				<div class="calendar_wrp">
+					<table id="calendar2">
+						<thead>
+							<tr><th><i class="fas fa-arrow-circle-left"></i></th>
+								<th id="monthSet" colspan="5"></th>
+								<th><i class="fas fa-arrow-circle-right"></i></th>
+							</tr>
+							<tr>
+								<th>Mon</th>
+								<th>Tue</th>
+								<th>Wed</th>
+								<th>Thu</th>
+								<th>Fri</th>
+								<th>Sat</th>
+								<th>Sun</th>
+							</tr>
+						</thead>
+						<tbody id="daySet"></tbody>
+					</table>
+				</div><!-- .calendar_wrp -->
+			</section><!-- .tasks_header -->
+			<section id="todo_wrp"></section>
+		</div>	<!-- .content -->		
+	</section> <!-- .cd-section -->
 
 	<script src="./js/todo.js" type="text/javascript"></script>
 </body>

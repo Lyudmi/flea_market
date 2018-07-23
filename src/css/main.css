@@ -7,7 +7,6 @@ content weather and data
     display: inline-block;
     vertical-align: top;
     color: white;
-    /* background: red; */
 }
 
 .dateAndWeather_wrp {
@@ -48,7 +47,6 @@ div#set_weather {
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    /* background-color: rgba(0, 0, 0, 0.5); */
     background-color: rgba(52, 70, 74, 1);
     border-radius: 7px;
 }
@@ -198,9 +196,7 @@ div.shedule_item:first-child .taskSet::after {
   } 
 
  /* -------------------------------- 
-
  content quote css
-
 -------------------------------- */
 
 .box{
@@ -300,6 +296,7 @@ div.shedule_item:first-child .taskSet::after {
     transition: 0.2s;
     border-radius: 10px;
     cursor: pointer;
+    outline: none;
 }
 #quote .container button:hover { 
     background: rgb(146, 85, 88); 
