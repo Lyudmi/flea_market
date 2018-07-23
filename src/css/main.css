@@ -2,102 +2,199 @@
 *********cd-content left
 content weather and data
 -------------------*/
-.cd-left{
-    width: 40%;
+.cd-left {
+    width: 45%;
     display: inline-block;
     vertical-align: top;
-    padding: 0 35px;
-    font-size: 1.8rem;
-    line-height: 1.6;
     color: white;
-    position: relative ;   
-  }
- .cd-left #time{
-    color: white;
-    position: relative ;
-    font-size: 7.0rem;
-    line-height: 8.0rem;
-    text-align: center;
-    margin:0;
-    padding:0;   
- }
- #location_block{
-    background-color: rgba(211, 86, 87, 0.7);
-    font-size: 1.8rem;
-    padding: 10px;
-    line-height: 2.5rem;
-    text-align: center;
-    -moz-border-radius: 0px 0px 5px 0px;
-    -webkit-border-radius: 0px;
-    border-radius: 0px 0px 5px 5px;
-    font-size: 1.8rem;
-    padding: 10px;
-    line-height: 2.5rem;
-    text-align: center;
-    -moz-border-radius: 0px 0px 5px 0px;
-    -webkit-border-radius: 0px;
-    border-radius: 10px 10px 0px 0px;
- }
- .cd-left #day{
-  
-    background-color: rgba(211, 86, 87, 0.7);
-    font-size: 1.8rem;
-    padding: 10px;
-    line-height: 2.5rem;
-    text-align: center;
-    -moz-border-radius: 0px 0px 5px 0px;
-    -webkit-border-radius: 0px;
-    border-radius: 0px 0px 5px 5px;
-    font-size: 1.8rem;
-    padding: 10px;
-    line-height: 2.5rem;
-    text-align: center;
-    -moz-border-radius: 0px 0px 5px 0px;
-    -webkit-border-radius: 0px;
-    border-radius: 0px 0px 5px 5px;
-   
- }
- .cd-left .times{
-    background-color: rgba(0, 0, 0, 0.6);
-    text-shadow: -1px 5px 4px rgba(0, 0, 0, 0.4);
-    padding: 5px 0 20px;
-    border-radius: 10px 10px 0 0;
- }
- #weather_today{
-  background-color: rgba(0, 0, 0, 0.6);
-  text-shadow: -1px 5px 4px rgba(0, 0, 0, 0.4);
-  padding: 10px 0 0px;
-  text-align: center;
-  border-radius: 0px 0px 10px 10px;
- }
- #set_weather{
-    margin-top: 15px;
-    padding: 0;
- }
- #set_weather .description{
-    background-color: rgba(131, 176, 185, 0.3);
-    border-radius: 0px 0px 10px 10px;
-    margin: 0;
-    padding: 0px 0 4px;
- }
- .cd-left .weather-day{
-   background-color: rgba(0, 0, 0, 0.6);
-    text-shadow: -1px 5px 4px rgba(0, 0, 0, 0.4);
-    padding: 5px 0 20px;
-    border-radius: 10px 10px 0 0;
- }
+    /* background: red; */
+}
 
+.dateAndWeather_wrp {
+    width: 100%;
+}
 
+div#set_date {
+    width: calc((100% - 15px)/ 2);
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin-right: 15px;
+}
+
+#time {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 2.5em;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-color: rgba(52, 70, 74, 1);
+    /* background-color: #83b0b9; */
+    border-radius: 7px 7px 0px 0px;
+    -moz-border-radius: 7px 7px 0px 0px;
+    -webkit-border-radius: 7px 7px 0px 0px;
+}
+
+#day {
+    font-size: 16px;
+    line-height: 1.7em;
+    background-color: #a15f62;
+    border-radius: 0px 0px 7px 7px;
+    -moz-border-radius: 0px 0px 7px 7px;
+    -webkit-border-radius: 0px 0px 7px 7px;
+}
+
+div#set_weather {
+    width: calc((100% - 15px)/ 2);
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-color: rgba(52, 70, 74, 1);
+    border-radius: 7px;
+}
+
+h3#location {
+    background-color: #a15f62;
+    font-size: 16px;
+    line-height: 1.7em;
+    border-radius: 7px 7px 0px 0px;
+    -moz-border-radius: 7px 7px 0px 0px;
+    -webkit-border-radius: 7px 7px 0px 0px;   
+}
+
+img.weather_icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+    width: 35%;
+}
+
+h3.temp {
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+h3.temp > span {
+    display: block;
+    font-weight: 700;
+}
+
+h3.temp > span.temp_min {
+    color: #a15f62;
+}
+
+h3.description {
+    font-size: 16px;
+    line-height: 1.7em;
+    font-weight: 700;
+    border-radius: 0px 0px 7px 7px;
+    -moz-border-radius: 0px 0px 7px 7px;
+    -webkit-border-radius: 0px 0px 7px 7px;
+}
+
+/*-----------------------
+section#shedule_wrp
+-------------------------*/
+#shedule {
+    width: 100%;
+    margin-top: 25px;
+    display: table;
+    border-collapse: collapse;
+}
+
+.shedule_item {
+	display: table-row;
+    width: 100%;
+    border-bottom: 1px solid white;
+
+}
+
+.task_date {
+    display: table-cell;
+	width: 25%;
+	vertical-align: middle;
+	text-align: center;
+    padding: 10px;
+    background-color: #131519;
+}
+
+span.weekday {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+span.day_month {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.taskSet {
+    display: table-cell;
+	width: calc(100% - 25%);
+    vertical-align: middle;
+    background-color: #83b0b9;
+    padding: 10px 25px 10px 10px;
+}
+
+div.shedule_item:first-child .taskSet{
+    position: relative;
+}
+
+div.shedule_item:first-child .taskSet::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 3px;
+    transform: translateY(-50%);
+    border: 20px solid transparent;
+    border-right: 20px solid #a15f62;
+}
+
+.task_row {
+    margin-bottom: 10px;
+}
+
+.task_row > p {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 7px;
+    color:  rgba(52, 70, 74, 1);
+}
+
+.task_row > p > span {
+    text-decoration: line-through;
+}
+
+.statOutput {
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+    /* color: #131519; */
+    /* color:  rgba(52, 70, 74, 1); */
+}
+
+.statOutput > span.completed {
+    font-weight: 700;
+    color:  #a15f62;
+}
+
+.statOutput > span.total {
+    font-weight: 700;
+    color: #131519;
+}
 
 /*----------------------------- content cd right---------------- */
 .cd-right{
-    width: 59%;
+    width: 55%;
     display: inline-block;
     color: white;
     /* margin-left: 25px; */
     padding: 0 35px;
-    line-height: 1.6;
-    font-size: 1.8rem;
+    /* line-height: 1.6;
+    font-size: 1.8rem; */
   } 
 
  /* -------------------------------- 
@@ -170,13 +267,16 @@ content weather and data
 }
 #quote .text_quote{
   font-style: italic;
-  font-size:1.6rem;
-  line-height: 24px;
+  /* font-size:1.6rem;
+  line-height: 24px; */
+  font-size:0.9rem;
+  line-height: 1.2em;
   width: 100%;
 }
 #quote .container .speech_mark_large{
   color: rgb(187, 112, 116);
-  font-size: 6rem;
+  /* font-size: 6rem; */
+  font-size: 3rem;
   vertical-align: top;
   top: 8px;
   position: relative;
@@ -184,17 +284,17 @@ content weather and data
 }
 #quote .container h5{
   color: rgb(187, 112, 116);
+  font-size: 1rem;
+  margin-top: 10px; 
 }
 
-
 #quote .container button{
-
     font-weight: 700;
+    font-size: 0.8rem;
     color: white;
     text-decoration: none;
     padding: 0.5em 0.8em;
     margin-top: 0.7em;
-    border-radius: 3px;
     background: #bb7074;
     box-shadow: 0 -2px #a15f62 inset;
     transition: 0.2s;

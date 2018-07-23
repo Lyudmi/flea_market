@@ -1,0 +1,337 @@
+/* * {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+} */
+
+.content {
+	width: 100%;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 0px;
+	font-weight: 400;
+	background-color: #ffe6cc;
+	color: black;
+	/* padding: 30px; */
+}
+
+ul.todolist .hide {
+	display: none;
+}
+
+.inpError{
+	border: 2px solid red;
+}
+
+/*----------------------
+section.tasks_header
+-----------------------*/
+/*----------------------
+div#addTaskBar
+----------------------*/
+
+.tasks_header {
+	display: block;
+	text-align: right;
+	text-align: center;
+}
+
+#addTaskBar {
+  	display: inline-block;
+  	vertical-align: middle;
+  	margin-right: 40px;
+  	margin-bottom: 20px;
+}
+
+#addTaskBar h1 {
+	font-family: 'Indie Flower', cursive;
+	font-size: 64px;
+	margin-bottom: 40px;
+}
+
+#addTaskBar > input {
+	display: inline-block;
+	vertical-align: middle;
+	outline: none;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 18px;
+	padding: 10px;
+	height: 50px;
+}
+
+#inpDate {
+	width: 180px;
+	margin-right: 10px;
+}
+
+#addtask {
+	max-width: 290px;
+}
+
+#addTaskBar > button {
+	display: inline-block;
+	vertical-align: middle;
+	width: 50px;
+	height: 50px;
+	outline: none;
+	border: none;
+	background-color: rgba(85, 85, 85, 1);/*rgba(0, 51, 153, 1)*/;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 30px;
+	color: white;
+	transition: background-color 0.3s ease;
+}
+
+#addTaskBar > button:hover {
+	background-color: #ff8400;
+	cursor: pointer;
+}
+
+/*----------------------
+calendar
+----------------------*/
+div.calendar_wrp {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 12px;
+	line-height: 1.1em;
+	text-align: center;
+	padding: 10px;
+	border-radius: 20px;
+	background-color: white;
+}
+
+table#calendar2 {
+  	width: 100%;
+  	border-collapse: collapse;	 
+}
+
+th, td {
+ 	width: calc(100% / 7);
+	border: none;
+}
+
+th {
+	padding: 10px 5px;
+}
+
+#calendar2 thead tr:first-child {
+	font-size: 24px;
+	background-color: #ff8400;
+	color: white;
+	transition: color 0.3s ease;
+	line-height: 1.4em;
+}
+
+/* #calendar2 thead tr:first-child th:nth-child(1){
+	border-top-left-radius: 20px;
+}
+
+#calendar2 thead tr:first-child th:nth-child(3){
+	border-top-right-radius: 20px;
+} */
+
+#calendar2 thead tr:first-child th:nth-child(1):hover,
+#calendar2 thead tr:first-child th:nth-child(3):hover {
+   	cursor: pointer;
+	color: rgba(0, 51, 153, 1);
+}
+
+#calendar2 thead tr:last-child th {
+	color: rgba(0, 51, 153, 1);
+	border-bottom: 3px solid rgba(0, 51, 153, 1);
+}
+
+#calendar2 thead tr:last-child th:nth-child(n+6){
+	color: rgb(51, 204, 51);
+}
+
+table#calendar2 td {
+	padding: 5px;
+}
+
+#calendar2 tbody td {
+	color: rgb(44, 86, 122);
+}
+
+#calendar2 tbody td:nth-child(n+6), 
+#calendar2 .holiday {
+	color: rgb(51, 204, 51);
+	font-weight: 700;
+}
+
+#calendar2 tbody td.today {
+	background-color: #ff8400;
+	font-weight: 700;
+	color: white;
+	border-radius: 7px;
+}
+
+#calendar2 td.occupied {
+	border-radius: 7px;
+	background-color: rgba(0, 51, 153, 1); /*darkblue*/
+	color: white;
+}
+
+#calendar2 td.occupied:hover {
+	opacity: 0.7;
+	border-radius: 7px;
+	cursor: pointer;
+}
+
+#calendar2 td.all_completed {
+	background-color: grey;
+}
+
+/*----------------------
+list
+----------------------*/
+
+ul.todolist {	
+	width: calc((100% - 50px) / 2);
+	display: inline-block;
+	vertical-align: top;
+	background-color: white;
+	list-style: none;
+	border: 3px solid rgba(85, 85, 85, 1);
+	padding: 10px 20px 20px;
+	margin-top: 30px;
+	box-shadow: 3px 3px 5px rgba(85, 85, 85, 1);
+}
+
+ul.todolist:nth-child(odd){
+	margin-right: 50px;
+}
+
+ul.todolist > span.close_list {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	margin-left: calc(100% - 25px);
+	font-size: 20px;
+	text-align: center;
+	transition: color 0.3s ease;
+}
+
+ul.todolist > span.close_list:hover {
+	color: #ff8400;
+}
+
+ul.todolist > p {
+	font-size: 24px;
+	line-height: 1.3em;
+	text-align: center;
+	font-weight: 700;
+	background-color: #ff8400;
+}
+
+ul.todolist > div {
+	margin: 30px 0px;
+	font-size: 16px;
+}
+
+ul.todolist > nav {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+ul.todolist > nav > p {
+	margin: 10px 0px;
+	font-size: 18px;
+	font-weight: 700;
+	font-style: italic;
+	text-align: left;
+}
+
+ul.todolist > nav > button,
+ul.todolist > nav > label {
+  	display: inline-block;
+  	vertical-align: middle;
+  	background: transparent;
+  	outline: none;
+  	border: 2px solid rgba(255, 205, 148, 1);
+  	border-radius: 30px;
+  	color: rgba(85, 85, 85, 1);
+  	text-align: center;
+  	font-size: 12px;
+  	padding: 5px 10px;
+	transition: background-color 0.3s ease;
+	margin-top: 7px;
+}
+
+ul.todolist > nav > button:hover,
+ul.todolist > nav > label:hover {
+	background-color: #ff8400;
+	border-color: #ff8400;
+} 
+
+li.todoitem {
+	border-bottom: 2px solid rgba(255, 205, 148, 1);
+	padding: 10px 5px;
+	font-size: 14px;
+}
+	
+li.todoitem  > span,
+li.todoitem  > textarea {
+	width: calc(100% - 105px - 10px);
+  	vertical-align: middle;
+   	text-align: left;
+   	padding: 0 10px;
+}
+
+li.todoitem  > span {
+  	display: inline-block;
+}
+
+li.todoitem  > textarea {
+	resize: none;
+	outline: none;
+	border: 1px solid rgba(255, 205, 148, 1); 
+}
+
+li.todoitem > button,
+li.todoitem > label {
+	width: 35px;
+	height: 35px;
+  	display: inline-block;
+  	vertical-align: middle;
+  	background: transparent;
+  	outline: none;
+  	border: 2px solid transparent/*rgba(255, 205, 148, 1)*/;
+  	border-radius: 50%;
+  	color: rgba(85, 85, 85, 1);
+  	text-align: center;
+  	line-height: 31px;
+  	transition: color 0.3s ease;
+  	transition: background-color 0.3s ease;
+}
+
+li.todoitem:hover {
+	background-color: rgba(255, 205, 148, 1);
+	border-radius: 10px;
+}
+
+li.todoitem:hover > button,
+li.todoitem:hover > label {
+	cursor: pointer;
+	background-color: #ff8400;
+}
+
+li.todoitem > button:hover,
+li.todoitem > label:hover{
+	color: #f2f2f2;
+}
+
+li.todoitem > button[disabled="true"] {
+	color: red;
+}
+
+.done_task {
+	text-decoration: line-through;
+	font-style: italic;
+	color: grey;
+}
+
+li.todoitem > .inp_checked {
+	color: rgb(51, 204, 51);
+	border-color: rgba(51, 204, 51, 1);
+}
