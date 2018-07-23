@@ -4,7 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+	
 	<link rel="stylesheet" href="./css/style.css"> 
 	<link rel="stylesheet" type="text/css" href="./css/weather.css">
 	
@@ -15,7 +17,7 @@
 		<ul>
 			<li >
 				<a href="./index.html" class="selected" data-menu="index">
-				 <img src="./img/logo_habits2.png" alt="logo" width="160">
+					<img src="./img/logo_habits2.png" alt="logo" width="160">
 				</a>
 			</li>
 			<li>
@@ -35,8 +37,7 @@
 					<img src="./img/weather.png" alt="" class="nc-icon outline">
 					Weather		
 				</a>
-			</li>
-	
+			</li>	
 			<li>
 				<a href="./map.html" data-menu="map">
 					<img src="./img/map.png" alt="" class="nc-icon outline">
@@ -52,100 +53,99 @@
 		</ul>
 	</nav>
 	
-	<main class="cd-main">
-		<section class="cd-section weather visible">
-			<div id="weather_today">
-				<h3 class="weekday"></h3>
-				<h3 class="date"></h3>
-				<img class="weather_icon">
-				<h3 class="description"></h3>
-				<h2 class="temp">
-					<span class="temp_max"></span> 
-					<span class="temp_min"></span>
-				</h2>
-				<h3 class="other_info">
-					<span class="other_info">
-						<i class="fas fa-tint"></i>
-						<span class="humidity"></span>
-					</span>		
-					<span class="other_info">
-						<i class="fas fa-tachometer-alt"></i>
-						<span class="pressure"></span>
-					</span>
-					<span class="other_info">
-						<i class="far fa-flag"></i>
-						<span class="wind"></span>
-					</span>
-				</h3>
-			 </div><!-- #weather_today -->
-
-			<div class="left">
-				<div id ="location_block">
-					<div class="loc_wrp">
-						<h2 id="city"></h2>
-						<h3 id="country"></h3>
+	<!-- <main class="cd-main"> -->
+		<section class="cd-section weather">
+			<div class="content">
+				<div class="preloader done">
+					<span class="preloader done" id="loader"></span>	
+				</div>
+				<section id="weather_today">
+					<h3 class="weekday"></h3>
+					<h3 class="date"></h3>
+					<img class="weather_icon">
+					<h3 class="description"></h3>
+					<h2 class="temp">
+						<span class="temp_max"></span> 
+						<span class="temp_min"></span>
+					</h2>
+					<h3 class="other_info">
+						<span class="other_info">
+							<i class="fas fa-tint"></i>
+							<span class="humidity"></span>
+						</span>		
+						<span class="other_info">
+							<i class="fas fa-tachometer-alt"></i>
+							<span class="pressure"></span>
+						</span>
+						<span class="other_info">
+							<i class="far fa-flag"></i>
+							<span class="wind"></span>
+						</span>
+					</h3>
+				</section> <!-- #weather_today -->
+				<section class="left">
+					<div id ="location_block">
+						<div class="loc_wrp">
+							<h2 id="city"></h2>
+							<h3 id="country"></h3>
+						</div>
+						<span><i class="fas fa-map-marker-alt"></i></span>
 					</div>
-					<span><i class="fas fa-map-marker-alt"></i></span>
-				</div> <!-- #location_block-->
-				<input type="text" id="input_city" placeholder="Enter your city" autofocus="">
-				<button id="weather">Get weather</button>
-				<div id="error" class="error done"></div>
-			</div>  <!-- .left-->
-
-			<div class="weather_forecast">
-				<div class="weather_item">
-					<h3 class="weekday"></h3>
-					<h3 class="date"></h3>
-					<img class="weather_icon">
-					<h3 class="temp">
-						<span class="temp_max"></span> 
-						<span class="temp_min"></span>
-					</h3>
-				</div>
-						
-				<div class="weather_item">
-					<h3 class="weekday"></h3>
-					<h3 class="date"></h3>
-					<img class="weather_icon" >
-					<h3 class="temp">
-						<span class="temp_max"></span> 
-						<span class="temp_min"></span>
-					</h3>
-				</div>
-
-				<div class="weather_item">
-					<h3 class="weekday"></h3>
-					<h3 class="date"></h3>
-					<img class="weather_icon" >
-					<h3 class="temp">
-						<span class="temp_max"></span> 
-						<span class="temp_min"></span>
-					</h3>
-				</div>
-
-				<div class="weather_item">
-					<h3 class="weekday"></h3>
-					<h3 class="date"></h3>
-					<img class="weather_icon" >
-					<h3 class="temp">
-						<span class="temp_max"></span>
-						<span class="temp_min"></span>
-					</h3>
-				</div>
-
-				<div class="weather_item">
-					<h3 class="weekday"></h3>
-					<h3 class="date"></h3>
-					<img class="weather_icon">
-					<h3 class="temp">
-						<span class="temp_max"></span>
-						<span class="temp_min"></span>
-					</h3>
-				</div>
-			</div> 	<!--weather_forecast-->	
+					<input type="text" id="input_city" placeholder="Enter your city" autofocus="">
+					<button id="weather">Get weather</button>
+					<div id="error" class="error done"></div>
+				</section>  <!-- .left-->
+				<section class="weather_forecast">
+					<div class="weather_item">
+						<h3 class="weekday"></h3>
+						<h3 class="date"></h3>
+						<img class="weather_icon">
+						<h3 class="temp">
+							<span class="temp_max"></span> 
+							<span class="temp_min"></span>
+						</h3>
+					</div>
+					<div class="weather_item">
+						<h3 class="weekday"></h3>
+						<h3 class="date"></h3>
+						<img class="weather_icon">
+						<h3 class="temp">
+							<span class="temp_max"></span> 
+							<span class="temp_min"></span>
+						</h3>
+					</div>
+					<div class="weather_item">
+						<h3 class="weekday"></h3>
+						<h3 class="date"></h3>
+						<img class="weather_icon">
+						<h3 class="temp">
+							<span class="temp_max"></span> 
+							<span class="temp_min"></span>
+						</h3>
+					</div>
+					<div class="weather_item">
+						<h3 class="weekday"></h3>
+						<h3 class="date"></h3>
+						<img class="weather_icon">
+						<h3 class="temp">
+							<span class="temp_max"></span>
+							<span class="temp_min"></span>
+						</h3>
+					</div>
+					<div class="weather_item">
+						<h3 class="weekday"></h3>
+						<h3 class="date"></h3>
+						<img class="weather_icon">
+						<h3 class="temp">
+							<span class="temp_max"></span>
+							<span class="temp_min"></span>
+						</h3>
+					</div>
+				</section> <!--weather_forecast-->	
+			</div><!-- content -->
 		</section> <!-- .cd-section -->
-	</main> <!-- .cd-main -->
+	<!-- </main> .cd-main -->
 
-<script src="./js/weather_2.js" ></script>
+	<script src="./js/weather.js" type="text/javascript"></script>
 </body>
 </html>

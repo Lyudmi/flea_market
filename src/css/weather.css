@@ -1,18 +1,11 @@
-/* * {
-	box-sizing: border-box;
-	margin: 0px;
-} */
-
-body {
-	box-sizing: border-box;
-	/* background-image: url("../img/weather_back.jpg"); */
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
+/*-----------------------------
+div.content
+------------------------------*/
+div.content {
+	height: 100%;
+	padding-bottom: 20px;
 	color: white;
-	margin: 0px;
-	/* font-size: 0; */
-	font-family: "Open Sans", sans-serif;
+	font-size: 0;
 }
 
 h2 {
@@ -22,76 +15,6 @@ h2 {
 h3 {
 	font-size: 16px;
 }
-
-/*-----------------------------
-preloader
-------------------------------*/
-
-.preloader {
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background-color: white;
-	z-index: 2;
-}
-
-#loader {
-	width: 50px;
-	height: 50px;
-	border: 7px solid white;
-	border-radius: 50%;
-	border-color: rgba(215, 242, 250, 1);
-	border-top-color: rgba(44, 165, 201, 1); /*blue*/
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	animation: 1.5s spin infinite linear;
-}
-
-.done {
-	display: none;
-}
-
-@keyframes spin {
-	from {
-		transform: translate(-50%, -50%) rotate(0deg);
-	}
-	to {
-		transform: translate(-50%, -50%) rotate(360deg);
-	}
-}
-
-/*-----------------------------------------*/
-
-
-/*-----------------------------
-nav.main_bar
-------------------------------*/
-
-nav.main_bar {
-	width: 150px;
-	height: 100%;
-	position: fixed;
-	left: 0;
-	top: 0;
-	background-color:  rgba(0, 0, 0, 0.5);
-}
-
-/*-----------------------------
-div.content
-------------------------------*/
-
-.content {
-	width: calc(100% - 150px);
-	height: 100%;
-	padding: 15px;
-	margin-left: 150px; 
-	/*background-color: yellow;*/
-}
-
 
 /*-----------------------------
 section#weather_today
@@ -107,12 +30,6 @@ section#weather_today
 	margin-right: 30px;
 	text-align: center;
 }
-
-/*#city_wthr {
-	text-align: left;
-	margin-bottom: 8px;
-}
-*/
 
 img.weather_icon {
 	display: block;
@@ -168,16 +85,15 @@ div#location_block {
 
 div.loc_wrp {
 	display: inline-block;
-/*	width: 70%;*/
 	margin-right: 30px; 
 }
 
 div.loc_wrp h2 {
 	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+	margin-bottom: 8px;
 }
 
 div#location_block > span {
-/*	width: calc( 100% - 70% - 30px);*/
 	font-size: 45px;
 	display: inline-block;
 	vertical-align: top;
@@ -186,10 +102,10 @@ div#location_block > span {
 input {
 	width: calc(100% - 20px - 30%);
 	min-width: 200px;
-	font-family: "Open Sans", sans-serif;
+	font-family: "PT Sans", sans-serif;
+	font-size: 16px;
 	line-height: 30px;
 	margin: 0 auto;
-	/*margin-right: 20px;*/
 	border-radius: 7px;
 	outline: none;
 	border: 2px solid  rgba(0, 0, 0, 1);
@@ -204,16 +120,15 @@ button {
 	outline: none;
 	padding: 7px 15px;
 	margin: 30px 0;
-	font-family: "Open Sans", sans-serif;
+	font-family: "PT Sans", sans-serif;
+	font-size: 14px;
 	color: white;
 }
 
 button:hover {
 	cursor: pointer;
-	background-color: rgba(44, 165, 201, 0.7); /*blue*/
+	background-color: rgba(139, 195, 74, 1);
 }
-
-
 
 /*-----------------------------
 section#weather_forecast
@@ -223,6 +138,7 @@ section#weather_forecast
 	border-radius: 7px;
 	background-color:  rgba(0, 0, 0, 0.5);
 	margin-top: 30px;
+	margin-bottom: 20px;
 	text-align: center;
 }
 
@@ -241,11 +157,16 @@ div.weather_item:last-child {
 
 .temp > span {
 	display: block;
+	font-weight: 700;
+}
+
+span.temp_max {
+	margin-bottom: 8px;
 }
 
 h3.weekday,
 h3.date {
-	background-color: rgba(19, 21, 25, 0.4); /*black*/
+	background-color: rgba(139, 195, 74, 1);
 	line-height: 1.5em;
 }
 
@@ -255,7 +176,7 @@ h3.weekday {
 }
 
 span.temp_min {
-	color: rgba(44, 165, 201, 1);
+	color:rgba(139, 195, 74, 1);
 }
 
 /*-----------------------------

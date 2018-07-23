@@ -3,11 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet"> 
+
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+	
 	<link rel="stylesheet" href="./css/style.css"> 
 	<link rel="stylesheet" href="./css/main.css">
-	
-  	
+	  	
 	<title>Flea market</title>
 </head>
 <body>
@@ -47,55 +49,45 @@
 					<img src="./img/about.png" alt="" class="nc-icon outline">
 					About
 				</a>
-			</li>
-	
-
-			
-			
+			</li>			
 		</ul>
 	</nav> 
-	
-	<main class="cd-main">
-		<section class="cd-section index visible">
-			<div class="preloader done">
-				<span class="preloader done" id="loader"></span>	
-			</div>
-
-			<div class="cd-left">
+	<section class="cd-section index">
+		<div class="preloader done">
+			<span class="preloader done" id="loader"></span>	
+		</div>
+		<div class="cd-left">
+			<section class="dateAndWeather_wrp">
 				<div id="set_date">
-					<div class="times">
-						<h1 id="time"></h1>
-					</div>
-					<div class="time-day">	
-						<h3 id="day"></h3>
-					</div>
+					<h1 id="time"></h1>
+					<h3 id="day"></h3>
 				</div>
 				<div id="set_weather">
-					<div id ="location_block">
-						<h3 >
-							<span id="city"></span> ,
-							<span id="country"></span>
-						</h3>
-					</div>
+					<h3 id="location" >
+						<span id="city"></span> ,
+						<span id="country"></span>
+					</h3>
 					<div id="weather_today">
 						<img class="weather_icon">
-						<h2 class="temp">
-							<span class="temp_max"></span> 
+						<h3 class="temp">
+							<span class="temp_max"></span>
 							<span class="temp_min"></span>
-						</h2>
+						</h3>
 						<h3 class="description"></h3>
 					</div>				
 				</div>
+			</section><!-- .dateAndWeather_wrp -->
+			<section id="shedule_wrp"></section>
+		</div> <!-- .cd-left -->
+							
+		<div class="cd-right">
+			<div class="box">
+				<div id="quote"></div>
 			</div>
-								
-			<div class="cd-right">
-				<div class="box">
-					<div id="quote"></div>
-				</div>
-				Lorem ipsum dolor!
-			</div>
-		</section> <!-- .cd-section -->
-	</main> <!-- .cd-main -->
+			Lorem ipsum dolor!
+		</div>
+	</section> <!-- .cd-section -->
+
 	<script src="./js/main.js" type="text/javascript"></script>
 	<script src="./js/index.jsx" ></script>
 </body>

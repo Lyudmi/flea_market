@@ -3,9 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet"> 
+	
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet"> 
+	
 	<link rel="stylesheet" href="./css/style.css"> 
 	<link rel="stylesheet" href="./css/map.css">
+
 	<title>Map</title>
 </head>
 <body>
@@ -49,17 +52,14 @@
 			</li>			
 		</ul>
 	</nav> 
-	
-	<main class="cd-main">
-		<section class="cd-section map visible">
-			<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-			<div id="mymap"></div>
-		</section> <!-- .cd-section -->
-	</main> <!-- .cd-main -->
+	<section class="cd-section map">
+		<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+		<div id="mymap"></div>
+	</section> <!-- .cd-section -->
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtJOCNcAEta51HBHPMnLTLe3lxX6QQj1o&libraries=places&callback=initAutocomplete"
-     async defer>
- </script>
-<script src="./js/map.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtJOCNcAEta51HBHPMnLTLe3lxX6QQj1o&libraries=places&callback=initAutocomplete"
+		async defer>
+	</script>
+	<script src="./js/map.js"></script>
 </body>
 </html>

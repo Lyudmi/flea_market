@@ -1,252 +1,13 @@
-// =======================
-// locationApi
-// =======================
-          
-class LocationApi {
-    getMyIp () {
-        return fetch("https://api.ipify.org?format=json")
-        .then(res => {
-            if(res.status === 200){
-                return res.json();
-            }
+// div.cd-left
+// =========================
 
-            return Promise.reject(res.status);
-        })
-    }
+// =========================
+// SetDateandWeatherMainApi
+// =========================
 
-    getMyLocation(my_ip){
-        const ipCache = JSON.parse(localStorage.getItem("ipCache")) || {};
-        if (ipCache[my_ip]) {
-            if (Date.now() - ipCache[my_ip].timestamp < 1000 * 60 * 20) {
-                return Promise.resolve(ipCache[my_ip].data);
+import { LocationApi, LocalStorageApi, Weather, Dom } from "./loc&WeatherApi.js";
 
-            } else {
-                ipCache[my_ip] = null;
-                localStorage.setItem("ipCache", JSON.stringify(ipCache));
-            }
-        }
-
-        const access_key = "d7e18e707400c1adebbaa807b91efaf4";
-        return fetch(`http://api.ipstack.com/${my_ip}?access_key=${access_key}`)
-        .then(res => {
-            if(res.status === 200){
-                return res.json();
-            }
-
-            return Promise.reject(res.status);
-        })
-
-        .then((data) => {
-                ipCache[my_ip] = {
-                    timestamp: Date.now(),
-                    data,
-                };
-                localStorage.setItem("ipCache", JSON.stringify(ipCache));
-
-                return data;
-            });
-    }
-
-}
-
-// =======================
-// localStorageApi
-// =======================
-
-class LocalStorageApi {
-    removeStorageItem(){
-        for (let i = 0; i < localStorage.length; i++) {
-            let key = localStorage.key(i);
-             console.log(key);
-            let keyValue =  JSON.parse(localStorage.getItem(key)); 
-             console.log(keyValue);
-            for (let j in keyValue) {
-                if (Date.now() - keyValue[j].timestamp > 1000 * 60 * 20) {
-                    localStorage.removeItem(key);
-                }
-            }
-        }
-    }
-}
-
-
-// =======================
-// weatherApi
-// =======================
-
-class Weather {
-    getWeather(city){
-        const weatherCache = JSON.parse(localStorage.getItem("weatherCache")) || {};
-        if (weatherCache[city]) {
-            if (Date.now() - weatherCache[city].timestamp < 1000 * 60 * 20) {
-                return Promise.resolve(weatherCache[city].data);
-
-            } else {
-                weatherCache[city] = null;
-                localStorage.setItem("weatherCache", JSON.stringify(weatherCache));
-            }
-        }
-
-        const api_key = "f79e38a9176442b59ae105655180707";
-        return fetch(`http://api.apixu.com/v1/forecast.json?key=${api_key}&q=${city}&days=6&lang=en`)
-        .then(res => {
-            if(res.status === 200){
-                return res.json();
-            } 
-            
-            return Promise.reject(res.status);
-        })
-
-        .then((data) => {
-                weatherCache[city] = {
-                    timestamp: Date.now(),
-                    data,
-                };
-                localStorage.setItem("weatherCache", JSON.stringify(weatherCache));
-
-                return data;
-            });
-
-        // .catch(rej => {
-        //     console.log(rej);
-        // })
-    }
-}
-
-// =======================
-// domApi
-// =======================
-
-
-class Dom {
-    constructor(){
-        this.preloader = document.getElementsByClassName("preloader");
-        this.locationBlock =  document.getElementById("location_block");
-
-        this.country = document.getElementById("country");
-        this.city = document.getElementById("city");
-        // this.city_wthr = document.getElementById("city_wthr");
-
-    }
-
-    showPreloader() {
-        setTimeout(() => {
-            for (let i = 0; i < this.preloader.length; i += 1){
-                this.preloader[i].classList.remove("done");
-            }
-        }, 500);
-    }
-
-    hidePreloader() {
-        setTimeout(() => {
-            for (let i = 0; i < this.preloader.length; i += 1){
-                this.preloader[i].classList.add("done");
-            }
-        }, 500);
-    }
-
-    setLocation(coordinates) {
-        this.country.innerHTML = coordinates.location.country;
-        this.city.innerHTML = coordinates.location.name;
-        // this.city_wthr.innerHTML = coordinates.city;
-
-    }
-
-    setWeatherToday(weatherData){
-        const weather_today = document.getElementById("weather_today");
-        this.weekday =  weather_today.querySelector("[class='weekday']");
-        this.date =  weather_today.querySelector("[class='date']");
-        this.weatherIcon =  weather_today.querySelector("[class='weather_icon']");
-        this.description = weather_today.querySelector("[class='description']");
-        this.tempMax =  weather_today.querySelector("[class='temp_max']");
-        this.tempMin =  weather_today.querySelector("[class='temp_min']");
-        this.humidity = weather_today.querySelector("[class='humidity']");
-        this.pressure = weather_today.querySelector("[class='pressure']");
-        this.winds = weather_today.querySelector("[class='wind']");
-
-        // this.city_wthr.innerHTML = weatherData.location.name;
-        this.date.innerHTML = weatherData.forecast.forecastday[0].date;
-        this.day = new Date(this.date.innerHTML);
-        this.weekday.innerHTML = this.day.toLocaleString("en", {weekday: "short"});
-        this.weatherIcon.src = "http:" + weatherData.current.condition.icon;  
-        this.description.innerHTML = weatherData.current.condition.text;
-        this.tempMax.innerHTML = weatherData.current.temp_c + " ºC";
-        this.tempMin.innerHTML = weatherData.forecast.forecastday[0].day.mintemp_c + " ºC";
-        this.humidity.innerHTML = weatherData.current.humidity + " %";
-        this.pressure.innerHTML = weatherData.current.pressure_mb + " hPa";
-        this.winds.innerHTML = (weatherData.current.wind_kph / 3.6).toFixed(1) + " m/s";
-    }
-
-    setWeatherForecast(weatherData){
-        const weather_item = document.getElementsByClassName("weather_item");
-        for (let i = 0; i < weather_item.length; i++){
-            this.weekday =  weather_item[i].querySelector("[class='weekday']");
-            this.date =  weather_item[i].querySelector("[class='date']");
-            this.weatherIcon =  weather_item[i].querySelector("[class='weather_icon']");
-            this.tempMax =  weather_item[i].querySelector("[class='temp_max']");
-            this.tempMin =  weather_item[i].querySelector("[class='temp_min']");
-            
-            this.date.innerHTML = weatherData.forecast.forecastday[i + 1].date;
-            this.day = new Date(this.date.innerHTML);
-            this.weekday.innerHTML = this.day.toLocaleString("en", {weekday: "short"});
-            this.weatherIcon.src = "http:" + weatherData.forecast.forecastday[i + 1].day.condition.icon;
-            this.tempMax.innerHTML = weatherData.forecast.forecastday[i + 1].day.maxtemp_c + " ºC";
-            this.tempMin.innerHTML = weatherData.forecast.forecastday[i + 1].day.mintemp_c + " ºC";
-        }
-    }
-
-    setWeatherMain(weatherData){
-        const weather_today = document.getElementById("weather_today");
-        this.weatherIcon =  weather_today.querySelector("[class='weather_icon']");
-        this.description = weather_today.querySelector("[class='description']");
-        this.tempMax =  weather_today.querySelector("[class='temp_max']");
-        this.tempMin =  weather_today.querySelector("[class='temp_min']");
-        
-        this.weatherIcon.src = "http:" + weatherData.current.condition.icon;  
-        this.description.innerHTML = weatherData.current.condition.text;
-        this.tempMax.innerHTML = weatherData.current.temp_c + " ºC";
-        this.tempMin.innerHTML = weatherData.forecast.forecastday[0].day.mintemp_c + " ºC";
-    }
-
-
-    showError(error){
-        this.errorMessage = document.getElementById("error");
-        this.inputCity = document.getElementById("input_city");
-        if(!this.inputCity.value) {
-            this.errorMessage.innerHTML = "Please, type city";
-            this.inputCity.classList.add("error");
-
-        } else if (!/^[A-z]{1,}/.test(this.inputCity.value)) {
-            this.errorMessage.innerHTML = `Please, type city with Latin characters.`;
-            this.inputCity.classList.add("error");
-
-        } else if (error === 400) {
-            // this.errorMessage.innerHTML = `Error ${error}. Message: ${error.error.code} :  ${error.error.message}. Please, try again`;
-            this.errorMessage.innerHTML = `Error ${error}. No location is found. Please, type correct city`;
-            this.inputCity.classList.add("error");
-        } else {
-            this.errorMessage.innerHTML = `Error ${error}. Server is not available. Please, try again later`;
-        }
-
-        this.errorMessage.classList.remove("done");
-        this.hidePreloader();
-
-        this.inputCity.onkeyup = () => {
-            this.errorMessage.classList.add("done");
-            this.inputCity.classList.remove("error");
-        }
-    }
-}
-
-
-// =================================================
-
-
-
-// export Dom from "./index_2.js";
-// export Dom from "./index_2.js";
-
-class setHeader {
+class setDateMain {
     setDate() {
         this.time = document.getElementById("time");
         this.day = document.getElementById("day");
@@ -268,15 +29,14 @@ class setHeader {
 
 }
 
-
-const date = new setHeader();
+const date = new setDateMain();
 const dom = new Dom();
 const weather = new Weather;
 const loc = new LocationApi;
 const storage = new LocalStorageApi();
 
-window.onload = () => {
-    //dom.showPreloader();
+function loadDateAndLocation(){
+    dom.showPreloader();
     date.setDate();
     storage.removeStorageItem();
     loc.getMyIp()
@@ -286,6 +46,119 @@ window.onload = () => {
             dom.setLocation(res);
             dom.setWeatherMain(res);
             dom.hidePreloader();
-        });       
+        });
+}
+
+window.onload = () => {
+    loadDateAndLocation();
+}
+
+// =========================
+// SheduleItem
+// =========================
+class SheduleItem {
+	constructor(day, parent){
+		this.date = new Date(day).toLocaleDateString().split(".").reverse().join("-");
+
+		this.sheduleItem = document.createElement("div");
+		this.sheduleItem.classList.add("shedule_item");
+
+		this.weekday = document.createElement("span");
+		this.weekday.classList.add("weekday");
+		this.dayMonth = document.createElement("span");
+		this.dayMonth.classList.add("day_month");
+		this.taskDate = document.createElement("div");
+		this.taskDate.classList.add("task_date");
+		this.taskDate.appendChild(this.weekday);
+		this.taskDate.appendChild(this.dayMonth);
+
+		this.taskRow = document.createElement("div");
+		this.taskRow.classList.add("task_row");
+		this.statOutput = document.createElement("div");
+		this.statOutput.classList.add("statOutput");
+		this.taskSet = document.createElement("div");
+		this.taskSet.classList.add("taskSet");
+		this.taskSet.appendChild(this.taskRow);
+		this.taskSet.appendChild(this.statOutput);
+
+		this.setDate(day);
+		this.setTasks();
+		this.setStatistic();
+
+		this.sheduleItem.appendChild(this.taskDate);
+		this.sheduleItem.appendChild(this.taskSet);
+		parent.appendChild(this.sheduleItem);
+	}
+
+	setDate(day){
+		this.weekday.textContent = new Date(day).toDateString().slice(0, 3);
+		this.dayMonth.textContent = new Date(day).toLocaleDateString().slice(0, 5);
+    }
+    
+    setTasks(){
+		this.taskStr = "";
+		if(todoCache[this.date]){
+			this.taskArr = Object.values(todoCache[this.date]).slice(0, 3);
+			this.taskArr.map((el) => {
+				(el.state === true) ? this.taskStr +=`<p><span>${el.task}</span></p>`
+										: this.taskStr +=`<p>${el.task}</p>`;
+			});
+
+		}
+	
+		this.taskRow.innerHTML = this.taskStr;
+	}
+
+	setStatistic(){
+		if(todoCache[this.date]){
+			this.total = Object.keys(todoCache[this.date]).length;
+			this.done = 0;			
+			for(let obj of Object.values(todoCache[this.date])){
+				if (obj.state === true) {
+					this.done += 1;
+				}
+			}
+			console.log(this.done);
+
+			(this.done === this.total) ? this.statistic = `All tasks completed`
+							: this.statistic = `Completed: <span class="completed">${this.done}</span> of <span class="total">${this.total}</span>`;		
+
+		} else {
+			this.total = 0;
+			this.statistic = `${this.total} task on this day`;
+		}
+			
+		this.statOutput.innerHTML = this.statistic;
+
+	}
+
+	setShedule(){
+
+	}	
 
 }
+
+const todoCache = JSON.parse(localStorage.getItem("todoCache")) || {};
+const sheduleWrp = document.getElementById("shedule_wrp");
+const shedule = document.createElement("div");
+shedule.setAttribute("id", "shedule");
+
+for (let i = 0, day = new Date().getTime(); 
+		i < 7; 
+		i++, day += (24 * 60 * 60 * 1000)){
+
+		let sheduleItem = new SheduleItem(day, shedule);
+}
+
+sheduleWrp.appendChild(shedule);
+
+// ====================================
+
+
+
+// div.cd-right
+// =========================
+
+
+
+
