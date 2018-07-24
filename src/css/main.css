@@ -19,7 +19,6 @@ section#shedule_wrp
     margin-bottom: 40px;
     text-align: center;
     color: black;
-    /* text-shadow: 1px 2px 3px black; */
 }
 
 #shedule {
@@ -55,7 +54,7 @@ div.shedule_item:nth-child(2) .task_date{
 }
 
 div.shedule_item:hover {
-    border-bottom-color:#83b0b9;
+    border-bottom-color: grey;
 }
 
 span.weekday {
@@ -162,7 +161,7 @@ div#set_date {
 #time {
     font-size: 34px;
     font-weight: 700;
-    line-height: 2.6em;
+    line-height: 2.85em;
     background-color: rgba(52, 70, 74, 1);
     border-radius: 7px 7px 0px 0px;
     -moz-border-radius: 7px 7px 0px 0px;
