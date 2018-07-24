@@ -24,10 +24,8 @@ div#set_date {
 #time {
     font-size: 34px;
     font-weight: 700;
-    line-height: 2.5em;
-    /* background-color: rgba(0, 0, 0, 0.5); */
+    line-height: 2.6em;
     background-color: rgba(52, 70, 74, 1);
-    /* background-color: #83b0b9; */
     border-radius: 7px 7px 0px 0px;
     -moz-border-radius: 7px 7px 0px 0px;
     -webkit-border-radius: 7px 7px 0px 0px;
@@ -58,6 +56,10 @@ h3#location {
     border-radius: 7px 7px 0px 0px;
     -moz-border-radius: 7px 7px 0px 0px;
     -webkit-border-radius: 7px 7px 0px 0px;   
+}
+
+div#weather_today {
+    padding: 5px 5px 0;
 }
 
 img.weather_icon {
@@ -94,6 +96,20 @@ h3.description {
 /*-----------------------
 section#shedule_wrp
 -------------------------*/
+#shedule_wrp {
+    padding-top: 70px;
+
+}
+
+#shedule_wrp > h1 {
+    font-family: 'Indie Flower', cursive;
+	font-size: 28px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: black;
+    /* text-shadow: 1px 2px 3px black; */
+}
+
 #shedule {
     width: 100%;
     margin-top: 25px;
@@ -114,7 +130,11 @@ section#shedule_wrp
 	vertical-align: middle;
 	text-align: center;
     padding: 10px;
-    background-color: #131519;
+    background-color:#83b0b9;
+}
+
+div.shedule_item:first-child .task_date{
+    background-color: #a15f62;
 }
 
 span.weekday {
@@ -133,8 +153,8 @@ span.day_month {
     display: table-cell;
 	width: calc(100% - 25%);
     vertical-align: middle;
-    background-color: #83b0b9;
-    padding: 10px 25px 10px 10px;
+    /* background-color: #83b0b9; */
+    padding: 15px 25px 10px 15px;
 }
 
 div.shedule_item:first-child .taskSet{
@@ -158,25 +178,25 @@ div.shedule_item:first-child .taskSet::after {
 .task_row > p {
     font-size: 14px;
     font-weight: 400;
-    margin-bottom: 7px;
-    color:  rgba(52, 70, 74, 1);
+    margin-bottom: 8px;
+    color: black;
 }
 
 .task_row > p > span {
     text-decoration: line-through;
+    font-style: italic;
 }
 
 .statOutput {
     font-size: 12px;
     font-weight: 400;
     font-style: italic;
-    /* color: #131519; */
-    /* color:  rgba(52, 70, 74, 1); */
+    color: #a15f62;
 }
 
 .statOutput > span.completed {
     font-weight: 700;
-    color:  #a15f62;
+    color: grey;
 }
 
 .statOutput > span.total {
@@ -300,4 +320,11 @@ div.shedule_item:first-child .taskSet::after {
 }
 #quote .container button:hover { 
     background: rgb(146, 85, 88); 
+}
+
+/* -----------------------------------
+div.cd-habit-main 
+------------------------------------*/
+div.cd-habit-main {
+    font-size: 12px;
 }
