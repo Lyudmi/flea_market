@@ -1,17 +1,155 @@
 /*------------------
-*********cd-content left
-content weather and data
+*cd-left
+content shedule
 -------------------*/
 .cd-left {
+    width: calc(100% - 80px - 45%);
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+    margin-right: 80px;
+}
+
+/*-----------------------
+section#shedule_wrp
+-------------------------*/
+
+#shedule_wrp > h1 {
+	font-size: 28px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: black;
+    /* text-shadow: 1px 2px 3px black; */
+}
+
+#shedule {
+    width: 100%;
+    margin-top: 25px;
+    display: table;
+    border-collapse: collapse;
+}
+
+.shedule_item {
+	display: table-row;
+    width: 100%;
+    border-bottom: 1px solid white;
+
+}
+
+.task_date {
+    display: table-cell;
+	width: 20%;
+	vertical-align: middle;
+	text-align: center;
+    padding: 10px;
+    background-color:#83b0b9;
+    transition: 0.3s ease;
+}
+
+div.shedule_item:first-child .task_date{
+    background-color: grey;
+}
+
+div.shedule_item:nth-child(2) .task_date{
+    background-color: #a15f62;
+}
+
+div.shedule_item:hover {
+    border-bottom-color:#83b0b9;
+}
+
+span.weekday {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+span.day_month {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.taskSet {
+    display: table-cell;
+	width: calc(100% - 20%);
+    vertical-align: middle;
+    padding: 15px 25px 10px 15px;
+}
+
+div.shedule_item:first-child .taskSet{
+   background-color:rgba(194, 194, 194, 0.3);
+}
+
+div.shedule_item:first-child .taskSet p {
+   color: grey;
+}
+
+div.shedule_item:nth-child(2) .taskSet{
+    position: relative;
+}
+
+div.shedule_item:nth-child(2) .taskSet::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 3px;
+    transform: translateY(-50%);
+    border: 20px solid transparent;
+    border-right: 20px solid #a15f62;
+}
+
+.task_row {
+    margin-bottom: 10px;
+}
+
+.task_row > p {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: black;
+}
+
+.hide {
+    display: none;
+    transition: display 0.6s ease;
+}
+
+.task_row > p > span {
+    text-decoration: line-through;
+    font-style: italic;
+}
+
+.statOutput {
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+    color: #a15f62;
+}
+
+.statOutput > span.completed {
+    font-weight: 700;
+    color: grey;
+}
+
+.statOutput > span.total {
+    font-weight: 700;
+    color: #131519;
+}
+
+/*------------------
+*cd-right
+content weather date quotes
+-------------------*/
+.cd-right {
     width: 45%;
     display: inline-block;
     vertical-align: top;
     color: white;
 }
-
-.dateAndWeather_wrp {
-    width: 100%;
-}
+  /*-----------------------
+section#.dateAndWeather_wrp
+-------------------------*/
 
 div#set_date {
     width: calc((100% - 15px)/ 2);
@@ -93,140 +231,25 @@ h3.description {
     -webkit-border-radius: 0px 0px 7px 7px;
 }
 
-/*-----------------------
-section#shedule_wrp
--------------------------*/
-#shedule_wrp {
-    padding-top: 70px;
-
-}
-
-#shedule_wrp > h1 {
-    font-family: 'Indie Flower', cursive;
-	font-size: 28px;
-    margin-bottom: 40px;
-    text-align: center;
-    color: black;
-    /* text-shadow: 1px 2px 3px black; */
-}
-
-#shedule {
-    width: 100%;
-    margin-top: 25px;
-    display: table;
-    border-collapse: collapse;
-}
-
-.shedule_item {
-	display: table-row;
-    width: 100%;
-    border-bottom: 1px solid white;
-
-}
-
-.task_date {
-    display: table-cell;
-	width: 25%;
-	vertical-align: middle;
-	text-align: center;
-    padding: 10px;
-    background-color:#83b0b9;
-}
-
-div.shedule_item:first-child .task_date{
-    background-color: #a15f62;
-}
-
-span.weekday {
-    display: block;
-    font-size: 16px;
-    font-weight: 700;
-}
-
-span.day_month {
-    display: block;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.taskSet {
-    display: table-cell;
-	width: calc(100% - 25%);
-    vertical-align: middle;
-    /* background-color: #83b0b9; */
-    padding: 15px 25px 10px 15px;
-}
-
-div.shedule_item:first-child .taskSet{
-    position: relative;
-}
-
-div.shedule_item:first-child .taskSet::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 3px;
-    transform: translateY(-50%);
-    border: 20px solid transparent;
-    border-right: 20px solid #a15f62;
-}
-
-.task_row {
-    margin-bottom: 10px;
-}
-
-.task_row > p {
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 8px;
-    color: black;
-}
-
-.task_row > p > span {
-    text-decoration: line-through;
-    font-style: italic;
-}
-
-.statOutput {
-    font-size: 12px;
-    font-weight: 400;
-    font-style: italic;
-    color: #a15f62;
-}
-
-.statOutput > span.completed {
-    font-weight: 700;
-    color: grey;
-}
-
-.statOutput > span.total {
-    font-weight: 700;
-    color: #131519;
-}
-
-/*----------------------------- content cd right---------------- */
-.cd-right{
-    width: 55%;
-    display: inline-block;
-    color: white;
-    /* margin-left: 25px; */
-    padding: 0 35px;
-    /* line-height: 1.6;
-    font-size: 1.8rem; */
-  } 
-
  /* -------------------------------- 
  content quote css
 -------------------------------- */
 
+.quote_wrp {
+    width: 100%;
+    display: inline-block;
+    color: white;
+    margin-top: 60px;
+} 
+
 .box{
     position: relative;
-    width: 90%;
+    width: calc(100% - 60px);
     height: 350px;
     transform-style: preserve-3d;
     perspective: 2000px;
     transition: 0.5s;
-    margin-left: 50px;
+    margin-left: 30px;
 }
 .box::before{
     content: '';
@@ -283,15 +306,12 @@ div.shedule_item:first-child .taskSet::after {
 }
 #quote .text_quote{
   font-style: italic;
-  /* font-size:1.6rem;
-  line-height: 24px; */
-  font-size:0.9rem;
+  font-size: 0.9rem;
   line-height: 1.2em;
   width: 100%;
 }
 #quote .container .speech_mark_large{
   color: rgb(187, 112, 116);
-  /* font-size: 6rem; */
   font-size: 3rem;
   vertical-align: top;
   top: 8px;
@@ -314,17 +334,12 @@ div.shedule_item:first-child .taskSet::after {
     background: #bb7074;
     box-shadow: 0 -2px #a15f62 inset;
     transition: 0.2s;
-    border-radius: 10px;
     cursor: pointer;
     outline: none;
-}
-#quote .container button:hover { 
-    background: rgb(146, 85, 88); 
+    border-radius: 10px;
+    border: 1px solid #a15f62;
 }
 
-/* -----------------------------------
-div.cd-habit-main 
-------------------------------------*/
-div.cd-habit-main {
-    font-size: 12px;
+#quote .container button:hover { 
+    background: rgb(146, 85, 88); 
 }

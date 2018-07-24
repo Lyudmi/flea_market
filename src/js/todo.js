@@ -12,6 +12,7 @@ class List{
 
 		this.closebtn = document.createElement("span");
 		this.closebtn.classList.add("close_list");
+		this.closebtn.setAttribute("title", "Close");
 		this.closebtn.innerHTML = "<i class='fas fa-times'></i>";		
 		this.dateOutput = document.createElement("p");
 		this.dateOutput.textContent = this.date;

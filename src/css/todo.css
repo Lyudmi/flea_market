@@ -47,32 +47,36 @@ div#addTaskBar
 	vertical-align: middle;
 	outline: none;
 	font-family: 'PT Sans', sans-serif;
-	font-size: 18px;
+	font-size: 16px;
 	padding: 10px;
-	height: 50px;
+	height: 45px;
+	border: 1px solid rgba(85, 85, 85, 1);
 }
 
 #inpDate {
 	width: 180px;
 	margin-right: 10px;
+	border-radius: 5px;
 }
 
 #addtask {
 	max-width: 290px;
+	border-radius: 5px 0px 0px 5px;
 }
 
 #addTaskBar > button {
 	display: inline-block;
 	vertical-align: middle;
-	width: 50px;
-	height: 50px;
+	width: 45px;
+	height: 45px;
 	outline: none;
 	border: none;
-	background-color: rgba(85, 85, 85, 1);/*rgba(0, 51, 153, 1)*/;
+	border-radius: 0px 5px 4px 0px;
+	background-color: rgba(85, 85, 85, 1);
 	font-family: 'PT Sans', sans-serif;
-	font-size: 30px;
+	font-size: 24px;
 	color: white;
-	transition: background-color 0.3s ease;
+	transition: 0.3s ease;
 }
 
 #addTaskBar > button:hover {
@@ -86,8 +90,6 @@ calendar
 div.calendar_wrp {
 	display: inline-block;
 	vertical-align: middle;
-	font-size: 12px;
-	line-height: 1.1em;
 	text-align: center;
 	padding: 10px;
 	border-radius: 20px;
@@ -109,20 +111,13 @@ th {
 }
 
 #calendar2 thead tr:first-child {
-	font-size: 24px;
+	font-size: 20px;
 	background-color: #ff8400;
 	color: white;
 	transition: color 0.3s ease;
 	line-height: 1.4em;
+	padding: 10px 5px;
 }
-
-/* #calendar2 thead tr:first-child th:nth-child(1){
-	border-top-left-radius: 20px;
-}
-
-#calendar2 thead tr:first-child th:nth-child(3){
-	border-top-right-radius: 20px;
-} */
 
 #calendar2 thead tr:first-child th:nth-child(1):hover,
 #calendar2 thead tr:first-child th:nth-child(3):hover {
@@ -133,6 +128,8 @@ th {
 #calendar2 thead tr:last-child th {
 	color: rgba(0, 51, 153, 1);
 	border-bottom: 3px solid rgba(0, 51, 153, 1);
+	font-size: 12px;
+	line-height: 1.1em;
 }
 
 #calendar2 thead tr:last-child th:nth-child(n+6){
@@ -141,10 +138,9 @@ th {
 
 table#calendar2 td {
 	padding: 5px;
-}
-
-#calendar2 tbody td {
 	color: rgb(44, 86, 122);
+	font-size: 12px;
+	line-height: 1.1em;
 }
 
 #calendar2 tbody td:nth-child(n+6), 
@@ -186,7 +182,8 @@ ul.todolist {
 	vertical-align: top;
 	background-color: white;
 	list-style: none;
-	border: 3px solid rgba(85, 85, 85, 1);
+	border: 1px solid rgba(85, 85, 85, 1);
+	border-radius: 5px;
 	padding: 10px 20px 20px;
 	margin-top: 30px;
 	box-shadow: 3px 3px 5px rgba(85, 85, 85, 1);
@@ -201,7 +198,7 @@ ul.todolist > span.close_list {
 	width: 25px;
 	height: 25px;
 	margin-left: calc(100% - 25px);
-	font-size: 20px;
+	font-size: 16px;
 	text-align: center;
 	transition: color 0.3s ease;
 }
@@ -211,11 +208,11 @@ ul.todolist > span.close_list:hover {
 }
 
 ul.todolist > p {
-	font-size: 24px;
-	line-height: 1.3em;
+	font-size: 20px;
+	line-height: 1.7em;
 	text-align: center;
 	font-weight: 700;
-	background-color: #ff8400;
+	background-color: #ffe6cc;
 }
 
 ul.todolist > div {
@@ -241,25 +238,27 @@ ul.todolist > nav > label {
   	display: inline-block;
   	vertical-align: middle;
   	background: transparent;
-  	outline: none;
-  	border: 2px solid rgba(255, 205, 148, 1);
-  	border-radius: 30px;
+	outline: none;
+	border:none;
+  	border-bottom: 1px solid rgba(255, 205, 148, 1);
   	color: rgba(85, 85, 85, 1);
   	text-align: center;
   	font-size: 12px;
-  	padding: 5px 10px;
-	transition: background-color 0.3s ease;
-	margin-top: 7px;
+	padding: 5px;
+	transition: background-color border-color color 0.3s ease;
+	margin: 7px 5px 0px 0px;
 }
 
 ul.todolist > nav > button:hover,
 ul.todolist > nav > label:hover {
 	background-color: #ff8400;
 	border-color: #ff8400;
+	border-radius: 10px;
+	color: white;
 } 
 
 li.todoitem {
-	border-bottom: 2px solid rgba(255, 205, 148, 1);
+	border-bottom: 1px solid rgba(255, 205, 148, 1);
 	padding: 10px 5px;
 	font-size: 14px;
 }
@@ -293,10 +292,10 @@ li.todoitem > label {
   	border: 2px solid transparent/*rgba(255, 205, 148, 1)*/;
   	border-radius: 50%;
   	color: rgba(85, 85, 85, 1);
-  	text-align: center;
+	text-align: center;
+	font-size: 12px;
   	line-height: 31px;
   	transition: color 0.3s ease;
-  	transition: background-color 0.3s ease;
 }
 
 li.todoitem:hover {
