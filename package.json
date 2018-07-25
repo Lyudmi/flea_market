@@ -9,10 +9,14 @@
     "react-dom": "^16.4.1"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.9.7"
+    "gh-pages": "^1.2.0",
+    "parcel-bundler": "^1.9.7",
+    "parcel-plugin-sw-precache": "^0.5.2"
   },
   "scripts": {
-    "start": "parcel ./src/index.html -p 3000"
+    "start": "parcel ./src/index.html -p 3000",
+    "build": "rm -rf dist && parcel build ./src/index.html --public-url /flea_market",
+    "publish": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",

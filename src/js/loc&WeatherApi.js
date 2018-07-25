@@ -28,8 +28,8 @@ export class LocationApi {
             }
         }
 
-        // const access_key = "d7e18e707400c1adebbaa807b91efaf4";
-        return fetch(`http://api.ipstack.com/${my_ip}?access_key=${apiKeys.locationApiKey}`)
+        
+        return fetch(`https://api.ipstack.com/${my_ip}?access_key=${apiKeys.locationApiKey}`)
         .then(res => {
             if(res.status === 200){
                 return res.json();
@@ -88,8 +88,8 @@ export class Weather {
             }
         }
 
-        // const api_key = "f79e38a9176442b59ae105655180707";
-        return fetch(`http://api.apixu.com/v1/forecast.json?key=${apiKeys.weatherApiKey}&q=${city}&days=6&lang=en`)
+        
+        return fetch(`https://api.apixu.com/v1/forecast.json?key=${apiKeys.weatherApiKey}&q=${city}&days=6&lang=en`)
        	.then(res => {
             if(res.status === 200){
                 return res.json();

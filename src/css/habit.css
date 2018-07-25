@@ -55,6 +55,7 @@
     background: rgb(225, 237, 254);
     color: rgb(255, 253, 245);
     font-weight: lighter;
+    vertical-align: middle;
 }
 
 .date-cell {
@@ -74,6 +75,8 @@
     position: relative;
     padding-left: 25px;
     padding-right: 5px;
+    vertical-align: middle;
+    text-align: center;
 }
 .today-habit-title-cell {
     height: 35px;
@@ -108,6 +111,8 @@
 }
 .start-date {
     background: rgb(231, 201, 65);
+    vertical-align: middle;
+    text-align: center;
 }
 
 .today-delete,
@@ -201,4 +206,6 @@
 }
 .end-date{
     background: grey;
+    vertical-align: middle;
+    text-align: center;
 }
