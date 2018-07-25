@@ -12,6 +12,7 @@ class List{
 
 		this.closebtn = document.createElement("span");
 		this.closebtn.classList.add("close_list");
+		this.closebtn.setAttribute("title", "Close");
 		this.closebtn.innerHTML = "<i class='fas fa-times'></i>";		
 		this.dateOutput = document.createElement("p");
 		this.dateOutput.textContent = this.date;
@@ -47,12 +48,7 @@ class List{
 		this.showAllbtn.onclick = this.showAll.bind(this);
 		this.deleteAllbtn.onclick = this.deleteAll.bind(this);
 		this.completeAllInp.onchange = this.completeAll.bind(this);
-		// =====================================================
-		// this.showCounter = document.createElement("p");
-		// this.showCounter.setAttribute("id", `showCounter_${this.date}`);
-		// this.counter = 0;
-		// =====================================================
-		// this.navBlock.appendChild(this.showCounter);
+
 		this.navBlock.appendChild(this.showUndonebtn);
 		this.navBlock.appendChild(this.showDonebtn);
 		this.navBlock.appendChild(this.showAllbtn);
@@ -64,8 +60,7 @@ class List{
 		this.list.appendChild(this.dateOutput);
 		this.list.appendChild(this.noTaskMesssage);
 		this.list.appendChild(this.navBlock);
-		parent.appendChild(this.list);
-			
+		parent.appendChild(this.list);			
 	}
 
 	closeList(){
@@ -104,7 +99,6 @@ class List{
 		}
 		delete todoCache[this.date];
 		localStorage.setItem("todoCache", JSON.stringify(todoCache));
-		// counter = 0;	
 	}
 
 	completeAll(){
@@ -122,7 +116,6 @@ class List{
 			// 	this.cell.classList.remove("occupied");
 			// 	this.cell.classList.add("all_completed");
 			// }
-			// counter = 0;
 
 		} else {
 			for (let i in todoCache[this.date]) {
@@ -137,12 +130,7 @@ class List{
 			// if(this.cell){
 			// 	this.cell.classList.add("occupied");
 			// 	this.cell.classList.remove("all_completed");
-			// }// this.counter = Object.keys(todoCache[this.date]).length;
-
 		}
-
-		// (counter < 2) ? this.counterUndone.innerHTML = `${counter} item left` 
-		// 				: this.counterUndone.innerHTML = `${counter} items left`;
 
 		localStorage.setItem("todoCache", JSON.stringify(todoCache));
 	}
@@ -155,11 +143,6 @@ class Task {
 		this.stamp = Date.now();
 		this.taskObj = todoCache[this.date] || {};
 		this.cell = document.getElementById(`td${this.date}`);
-
-		// this.counterUndone = document.getElementById(`counterUndone_${this.date}`);
-		// this.counter = 0;
-		// (this.counter < 2) ? this.counterUndone.innerHTML = `${this.counter} item left` 
-		// 					: this.counterUndone.innerHTML = `${this.counter} items left`;
 
 		this.li = document.createElement("li");
 		this.li.setAttribute("id", this.stamp);
@@ -220,10 +203,6 @@ class Task {
 			this.noTaskMesssage.classList.add("hide");
 			this.navBlock.classList.remove("hide");
 			this.list.appendChild(this.li);
-			// this.counter +=1;
-			// console.log(this.counter);
-
-			// this.counterUndone();
 		}
 	}
 
@@ -266,14 +245,12 @@ class Task {
 			this.doneLable.classList.add("inp_checked");
 			this.editbtn.setAttribute("disabled", true);
 			this.taskObj[`${this.stamp}`].state = true;
-			// this.counter -= 1;
 
 		} else {
 			this.span.classList.remove("done_task");
 			this.doneLable.classList.remove("inp_checked");
 			this.editbtn.removeAttribute("disabled");
 			this.taskObj[`${this.stamp}`].state = false;
-			// this.counter += 1;
 		}
 		
 		todoCache[this.date] = this.taskObj;
@@ -293,10 +270,6 @@ class Task {
 	}
 
 	removeTask(){
-		// if(this.taskObj[`${this.stamp}`].state = false){
-		// 	this.counter -= 1;
-		// }
-
 		this.list.removeChild(this.li);
 		delete this.taskObj[`${this.stamp}`];
 
@@ -323,7 +296,6 @@ class LoadTask extends Task{
 		this.stamp = stamp;
 		this.text = text;
 		this.state = state;
-		// this.counter = Object.keys(this.taskObj).length;
 
 		this.loadTask();
 	}
@@ -505,30 +477,6 @@ function dayPicker(parent){
 	}
 }
 
-
-
-// function scrollToElement(theElement) {
-//     var selectedPosX = 0;
-////     var selectedPosY = 0;
-//
-   
-//
-//     while (theElement != null) {
-// 
-//       selectedPosX += theElement.offsetLeft;
-//
-//         selectedPosY += theElement.offsetTop;
-//
-//         theElement = theElement.offsetParent;
-// 
-//    }
-//
-                                       
-//
-//     window.scrollTo(selectedPosX,selectedPosY);
-
-
-
 // ======================================
 
 const todoCache = JSON.parse(localStorage.getItem("todoCache")) || {};
@@ -539,7 +487,6 @@ window.onload = () => {
 	const today = new Date().toLocaleDateString().split(".").reverse().join("-");
 	onLoadTask(today, todoWrp);
 
-	// const tommorow = new Date(new Date().getTime() + (24 * 60 * 60 * 1000)).toISOString().substr(0, 10);
 	const tommorow = new Date(new Date().getTime() + (24 * 60 * 60 * 1000)).toLocaleDateString().split(".").reverse().join("-");
 	onLoadTask(tommorow, todoWrp);
 

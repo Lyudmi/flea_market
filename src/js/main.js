@@ -56,6 +56,7 @@ window.onload = () => {
 // =========================
 // SheduleItem
 // =========================
+
 class SheduleItem {
 	constructor(day, parent){
 		this.date = new Date(day).toLocaleDateString().split(".").reverse().join("-");
@@ -80,13 +81,15 @@ class SheduleItem {
 		this.taskSet.classList.add("taskSet");
 		this.taskSet.appendChild(this.taskRow);
 		this.taskSet.appendChild(this.statOutput);
-
+		
 		this.setDate(day);
 		this.setTasks();
 		this.setStatistic();
+		this.checkHiddenTask = true;
+		this.sheduleItem.onclick = this.hideTasks.bind(this);		
 
 		this.sheduleItem.appendChild(this.taskDate);
-		this.sheduleItem.appendChild(this.taskSet);
+		this.sheduleItem.appendChild(this.taskSet);		
 		parent.appendChild(this.sheduleItem);
 	}
 
@@ -98,14 +101,18 @@ class SheduleItem {
     setTasks(){
 		this.taskStr = "";
 		if(todoCache[this.date]){
-			this.taskArr = Object.values(todoCache[this.date]).slice(0, 3);
+			this.taskArr = Object.values(todoCache[this.date]);
 			this.taskArr.map((el) => {
-				(el.state === true) ? this.taskStr +=`<p><span>${el.task}</span></p>`
-										: this.taskStr +=`<p>${el.task}</p>`;
+				if(this.taskArr.indexOf(el) < 3) {
+					(el.state === true) ? this.taskStr +=`<p><span>${el.task}</span></p>`
+										: this.taskStr +=`<p>${el.task}</p>`;			
+										
+				} else {				
+					(el.state === true) ? this.taskStr +=`<p class="hide"><span>${el.task}</span></p>`
+										: this.taskStr +=`<p class="hide">${el.task}</p>`;
+				}
 			});
-
-		}
-	
+		}	
 		this.taskRow.innerHTML = this.taskStr;
 	}
 
@@ -118,24 +125,29 @@ class SheduleItem {
 					this.done += 1;
 				}
 			}
-			console.log(this.done);
-
 			(this.done === this.total) ? this.statistic = `All tasks completed`
 							: this.statistic = `Completed: <span class="completed">${this.done}</span> of <span class="total">${this.total}</span>`;		
-
 		} else {
 			this.total = 0;
 			this.statistic = `${this.total} task on this day`;
-		}
-			
+		}			
 		this.statOutput.innerHTML = this.statistic;
-
 	}
 
-	setShedule(){
-
+	hideTasks(){
+		this.arr = this.sheduleItem.querySelectorAll("p");
+		if(this.arr.length > 3) {
+			for(let i = 3; i < this.arr.length; i++){
+				if(this.checkHiddenTask) {
+					this.arr[i].classList.remove("hide");
+					this.checkHiddenTask = false;
+				} else {
+					this.arr[i].classList.add("hide");
+					this.checkHiddenTask = true;
+				}					
+			}
+		}					
 	}	
-
 }
 
 const todoCache = JSON.parse(localStorage.getItem("todoCache")) || {};
@@ -143,8 +155,8 @@ const sheduleWrp = document.getElementById("shedule_wrp");
 const shedule = document.createElement("div");
 shedule.setAttribute("id", "shedule");
 
-for (let i = 0, day = new Date().getTime(); 
-		i < 7; 
+for (let i = 0, day = (new Date().getTime() - (24 * 60 * 60 * 1000)); 
+		i < 8; 
 		i++, day += (24 * 60 * 60 * 1000)){
 
 		let sheduleItem = new SheduleItem(day, shedule);
@@ -152,12 +164,11 @@ for (let i = 0, day = new Date().getTime();
 
 sheduleWrp.appendChild(shedule);
 
-// ====================================
+// ========================================
 
 
 
-// div.cd-right
-// =========================
+
 
 
 

@@ -157,6 +157,7 @@ a {
   background-size: cover;
 	background-repeat: no-repeat;
   background-position: center;
+  color: white;
 }
 
 .cd-section.map  {
@@ -168,7 +169,7 @@ a {
 }
 
 .cd-section.habits {
-  background-color: #d35657;
+  background-color: #fbcaca;
 }
 
 .cd-section.about {
