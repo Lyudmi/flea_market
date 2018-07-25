@@ -1,13 +1,4 @@
 
-.content {
-	width: 100%;
-	font-family: 'PT Sans', sans-serif;
-	font-size: 0px;
-	font-weight: 400;
-	background-color: #ffe6cc;
-	color: black;
-}
-
 ul.todolist .hide {
 	display: none;
 }
@@ -141,6 +132,7 @@ table#calendar2 td {
 	color: rgb(44, 86, 122);
 	font-size: 12px;
 	line-height: 1.1em;
+	border-radius: 7px;
 }
 
 #calendar2 tbody td:nth-child(n+6), 
@@ -153,23 +145,21 @@ table#calendar2 td {
 	background-color: #ff8400;
 	font-weight: 700;
 	color: white;
-	border-radius: 7px;
 }
 
 #calendar2 td.occupied {
-	border-radius: 7px;
 	background-color: rgba(0, 51, 153, 1); /*darkblue*/
 	color: white;
 }
 
-#calendar2 td.occupied:hover {
+#calendar2 td.occupied:hover,
+#calendar2 td.all_completed:hover {
 	opacity: 0.7;
-	border-radius: 7px;
 	cursor: pointer;
 }
 
 #calendar2 td.all_completed {
-	background-color: grey;
+	background-color: rgb(217, 242, 230);
 }
 
 /*----------------------
