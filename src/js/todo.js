@@ -112,10 +112,10 @@ class List{
 			}
 			this.checkCompleted = true;
 			this.completeAllLabel.innerHTML = "Uncomplete All";
-			// if(this.cell){
-			// 	this.cell.classList.remove("occupied");
-			// 	this.cell.classList.add("all_completed");
-			// }
+			if(this.cell){
+				this.cell.classList.remove("occupied");
+				this.cell.classList.add("all_completed");
+			}
 
 		} else {
 			for (let i in todoCache[this.date]) {
@@ -127,9 +127,10 @@ class List{
 			}
 			this.checkCompleted = false;
 			this.completeAllLabel.innerHTML = "Complete All";
-			// if(this.cell){
-			// 	this.cell.classList.add("occupied");
-			// 	this.cell.classList.remove("all_completed");
+			if(this.cell){
+				this.cell.classList.add("occupied");
+				this.cell.classList.remove("all_completed");
+			}
 		}
 
 		localStorage.setItem("todoCache", JSON.stringify(todoCache));
@@ -240,33 +241,37 @@ class Task {
 	}
 
 	doneTask(){
+		this.cell = document.getElementById(`td${this.date}`);
 		if(this.taskObj[`${this.stamp}`].state !== true){
 			this.span.classList.add("done_task");
 			this.doneLable.classList.add("inp_checked");
 			this.editbtn.setAttribute("disabled", true);
 			this.taskObj[`${this.stamp}`].state = true;
 
+			let check = Object.values(this.taskObj).find((e) => { 
+				return (e.state === false)
+			});
+			if(!check){
+				console.log(this.cell);
+				if(this.cell){
+					this.cell.classList.remove("occupied");
+					this.cell.classList.add("all_completed");
+				}	
+			}
+
 		} else {
 			this.span.classList.remove("done_task");
 			this.doneLable.classList.remove("inp_checked");
 			this.editbtn.removeAttribute("disabled");
 			this.taskObj[`${this.stamp}`].state = false;
+			if(this.cell){
+				this.cell.classList.add("occupied");
+				this.cell.classList.remove("all_completed");
+			}
 		}
 		
 		todoCache[this.date] = this.taskObj;
 		localStorage.setItem("todoCache", JSON.stringify(todoCache));
-
-		// =======================
-
-		// for(let stamp in todoCache[this.date]){
-		// 	if(stamp.status === false){
-		// 		this.cell.classList.add("occupied");
-		// 		this.cell.classList.remove("all_completed");
-		// 	} else  {
-		// 		this.cell.classList.remove("occupied");
-		// 		this.cell.classList.add("all_completed");
-		// 	}
-		// }
 	}
 
 	removeTask(){
@@ -310,7 +315,6 @@ class LoadTask extends Task{
 				this.span.classList.add("done_task");
 				this.doneLable.classList.add("inp_checked");
 				this.editbtn.setAttribute("disabled", true);
-				this.counter -= 1;
 			}
 
 			this.doneInp = this.li.querySelector("input[type='checkbox']");
@@ -323,7 +327,7 @@ class LoadTask extends Task{
 		} else {
 			this.navBlock.classList.add("hide");
 			this.noTaskMesssage.classList.remove("hide");
-		}
+		}		
 	}
 }
 
@@ -357,7 +361,6 @@ function onTaskAdded(parent){
 		}
 		inpText.value = "";		
 	}
-
 }
 
 function onLoadTask(date, parent){
@@ -378,7 +381,6 @@ function onLoadTask(date, parent){
 		}
 	}
 }
-
 
 // =============================================
 // calendar 
@@ -467,11 +469,16 @@ function dayPicker(parent){
                 });
             } 
 			if(todoCache[date]) {
-				cell[i].classList.add("occupied");
+				let check = Object.values(todoCache[date]).find((e) => { 
+					return (e.state === false)
+				});
+
+				(!check) ? cell[i].classList.add("all_completed")
+						: cell[i].classList.add("occupied");
 
 			} else {
-                cell[i].classList.remove("occupied");
-                // cell[i].setAttribute("title", "No task on this day");   
+				cell[i].classList.remove("occupied");
+				cell[i].classList.remove("all_completed"); 
 			}
 		}
 	}

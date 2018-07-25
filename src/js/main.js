@@ -137,14 +137,17 @@ class SheduleItem {
 	hideTasks(){
 		this.arr = this.sheduleItem.querySelectorAll("p");
 		if(this.arr.length > 3) {
-			for(let i = 3; i < this.arr.length; i++){
-				if(this.checkHiddenTask) {
+			if(this.checkHiddenTask) {
+				for(let i = 3; i < this.arr.length; i++){
 					this.arr[i].classList.remove("hide");
-					this.checkHiddenTask = false;
-				} else {
+				}
+				this.checkHiddenTask = false;
+
+			} else {
+				for(let i = 3; i < this.arr.length; i++){
 					this.arr[i].classList.add("hide");
-					this.checkHiddenTask = true;
-				}					
+				}
+				this.checkHiddenTask = true;									
 			}
 		}					
 	}	
