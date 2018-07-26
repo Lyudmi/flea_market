@@ -71,7 +71,7 @@ div#addTaskBar
 }
 
 #addTaskBar > button:hover {
-	background-color: #ff8400;
+	background-color: #ffb366;
 	cursor: pointer;
 }
 
