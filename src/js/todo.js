@@ -490,8 +490,11 @@ function dayPicker(parent){
             
 			if(!isNaN(day)) {
                 cell[i].addEventListener("click", (e) => {
-                    let date = e.target.id.slice(2);
-                    onLoadTask(date, parent);
+					let date = e.target.id.slice(2);
+					if(!document.getElementById(date)){
+						onLoadTask(date, parent);
+					}
+					document.getElementById(date).scrollIntoView({ behavior: "smooth"});
                 });
             } 
 			if(todoCache[date]) {
