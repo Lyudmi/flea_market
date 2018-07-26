@@ -540,4 +540,10 @@ inputTask.addEventListener("keyup", (key) => {
 		onTaskAdded(todoWrp);
 	}
 });
-	
+
+const return_btn = document.getElementById("return_btn");
+return_btn.addEventListener("click", () => {
+	document.getElementById("toDoHeader").scrollIntoView({ behavior: "smooth"});
+});
+
+

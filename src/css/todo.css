@@ -318,3 +318,26 @@ li.todoitem > .inp_checked {
 	color: rgb(51, 204, 51);
 	border-color: rgba(51, 204, 51, 1);
 }
+
+button#return_btn {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	font-size: 16px;
+	position: fixed;
+	right: 25px;
+	bottom: 20px;
+	background: #ff8400;
+	border:none;
+	outline: none;
+	transition: 0.3s ease;
+}
+
+button#return_btn i {
+	line-height: 30px;
+}
+
+button#return_btn:hover {
+	color: white;
+	border:1px solid white;
+}
