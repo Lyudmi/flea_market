@@ -11,6 +11,10 @@ window.onload = () => {
     dom.showPreloader();
     storage.removeStorageItem();
     loc.getMyLocation()
+        .catch(rej => {
+            console.log('Error:', rej);
+            return { "city" : "Poltava"}
+        })
         .then(res => weather.getWeather(res.city))
         .then(res => {
             dom.setWeatherToday(res);
