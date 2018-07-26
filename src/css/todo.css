@@ -16,8 +16,8 @@ div#addTaskBar
 
 .tasks_header {
 	display: block;
-	text-align: right;
 	text-align: center;
+	margin-bottom: 50px;
 }
 
 #addTaskBar {
@@ -71,7 +71,7 @@ div#addTaskBar
 }
 
 #addTaskBar > button:hover {
-	background-color: #ff8400;
+	background-color: #ffb366;
 	cursor: pointer;
 }
 
@@ -103,7 +103,7 @@ th {
 
 #calendar2 thead tr:first-child {
 	font-size: 20px;
-	background-color: #ff8400;
+	background-color: #ffb366;
 	color: white;
 	transition: color 0.3s ease;
 	line-height: 1.4em;
@@ -142,7 +142,7 @@ table#calendar2 td {
 }
 
 #calendar2 tbody td.today {
-	background-color: #ff8400;
+	background-color:#ffb366;
 	font-weight: 700;
 	color: white;
 }
@@ -194,7 +194,7 @@ ul.todolist > span.close_list {
 }
 
 ul.todolist > span.close_list:hover {
-	color: #ff8400;
+	color: #ffb366;
 }
 
 ul.todolist > p {
@@ -241,8 +241,8 @@ ul.todolist > nav > label {
 
 ul.todolist > nav > button:hover,
 ul.todolist > nav > label:hover {
-	background-color: #ff8400;
-	border-color: #ff8400;
+	background-color:#ffb366;
+	border-color: #ffb366;
 	border-radius: 10px;
 	color: white;
 } 
@@ -251,6 +251,7 @@ li.todoitem {
 	border-bottom: 1px solid rgba(255, 205, 148, 1);
 	padding: 10px 5px;
 	font-size: 14px;
+	transition: display 1s ease;
 }
 	
 li.todoitem  > span,
@@ -296,7 +297,7 @@ li.todoitem:hover {
 li.todoitem:hover > button,
 li.todoitem:hover > label {
 	cursor: pointer;
-	background-color: #ff8400;
+	background-color: #ffb366;
 }
 
 li.todoitem > button:hover,
@@ -317,4 +318,27 @@ li.todoitem > button[disabled="true"] {
 li.todoitem > .inp_checked {
 	color: rgb(51, 204, 51);
 	border-color: rgba(51, 204, 51, 1);
+}
+
+button#return_btn {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	font-size: 16px;
+	position: fixed;
+	right: 25px;
+	bottom: 20px;
+	background: #ffb366;
+	border:1px solid #ffb366;
+	outline: none;
+	transition: 0.3s ease;
+}
+
+button#return_btn i {
+	line-height: 30px;
+}
+
+button#return_btn:hover {
+	color: white;
+	border-color: white;
 }

@@ -10,8 +10,7 @@ const inputCity = document.getElementById("input_city");
 window.onload = () => {
     dom.showPreloader();
     storage.removeStorageItem();
-    loc.getMyIp()
-        .then(res => loc.getMyLocation(res.ip))
+    loc.getMyLocation()
         .then(res => weather.getWeather(res.city))
         .then(res => {
             dom.setWeatherToday(res);
@@ -21,8 +20,9 @@ window.onload = () => {
         })
          
         .catch(error => {
-            console.log(error);
+            dom.hidePreloader();
             alert(`Error ${error}. Sever is not available. Please, try again later`);
+            console.log('Error:', error);
         });
 }
 
@@ -39,6 +39,7 @@ function getWeatherByCity() {
             .then(res => dom.hidePreloader())
 
             .catch(error => {
+                dom.showPreloader();
                 console.log(error);
                 dom.showError(error);
             });

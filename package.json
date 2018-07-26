@@ -1,15 +1,15 @@
 {
   "name": "flea_market",
   "version": "1.0.0",
-  "description": "diplom project",
-  "main": "index.js",
+  "description": "The main purpose of Flea Market is to help people to stay more organized",
+  "main": "index.html",
   "dependencies": {
-    "parcel": "^1.9.7",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   },
   "devDependencies": {
     "gh-pages": "^1.2.0",
+    "parcel": "^1.9.7",
     "parcel-bundler": "^1.9.7",
     "parcel-plugin-sw-precache": "^0.5.2"
   },
@@ -23,8 +23,8 @@
     "url": "git+https://github.com/Lyudmi/flea_market.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Our beautiful team of three people",
+  "license": "MIT License",
   "bugs": {
     "url": "https://github.com/Lyudmi/flea_market/issues"
   },

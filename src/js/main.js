@@ -39,14 +39,17 @@ function loadDateAndLocation(){
     dom.showPreloader();
     date.setDate();
     storage.removeStorageItem();
-    loc.getMyIp()
-        .then(res => loc.getMyLocation(res.ip))
+    loc.getMyLocation()
         .then(res => weather.getWeather(res.city))
         .then(res => {
             dom.setLocation(res);
             dom.setWeatherMain(res);
             dom.hidePreloader();
-        });
+		})
+		.catch(rej => {
+			dom.hidePreloader();
+			console.log('Error:', rej);
+		})
 }
 
 window.onload = () => {
@@ -57,12 +60,12 @@ window.onload = () => {
 // SheduleItem
 // =========================
 
-class SheduleItem {
+class ScheduleItem {
 	constructor(day, parent){
 		this.date = new Date(day).toLocaleDateString().split(".").reverse().join("-");
 
-		this.sheduleItem = document.createElement("div");
-		this.sheduleItem.classList.add("shedule_item");
+		this.scheduleItem = document.createElement("div");
+		this.scheduleItem.classList.add("schedule_item");
 
 		this.weekday = document.createElement("span");
 		this.weekday.classList.add("weekday");
@@ -77,20 +80,25 @@ class SheduleItem {
 		this.taskRow.classList.add("task_row");
 		this.statOutput = document.createElement("div");
 		this.statOutput.classList.add("statOutput");
+		this.navArrow = document.createElement("span");
+		this.navArrow.classList.add("navArrow");
+		this.navArrow.innerHTML = "<i class='fas fa-caret-down'></i>";
+		this.navArrow.classList.add("hide");
 		this.taskSet = document.createElement("div");
 		this.taskSet.classList.add("taskSet");
 		this.taskSet.appendChild(this.taskRow);
 		this.taskSet.appendChild(this.statOutput);
+		this.taskSet.appendChild(this.navArrow);
 		
 		this.setDate(day);
 		this.setTasks();
 		this.setStatistic();
 		this.checkHiddenTask = true;
-		this.sheduleItem.onclick = this.hideTasks.bind(this);		
+		this.scheduleItem.onclick = this.hideTasks.bind(this);		
 
-		this.sheduleItem.appendChild(this.taskDate);
-		this.sheduleItem.appendChild(this.taskSet);		
-		parent.appendChild(this.sheduleItem);
+		this.scheduleItem.appendChild(this.taskDate);
+		this.scheduleItem.appendChild(this.taskSet);		
+		parent.appendChild(this.scheduleItem);
 	}
 
 	setDate(day){
@@ -105,11 +113,15 @@ class SheduleItem {
 			this.taskArr.map((el) => {
 				if(this.taskArr.indexOf(el) < 3) {
 					(el.state === true) ? this.taskStr +=`<p><span>${el.task}</span></p>`
-										: this.taskStr +=`<p>${el.task}</p>`;			
+										: this.taskStr +=`<p>${el.task}</p>`;
+					
+					this.navArrow.classList.add("hide");
 										
 				} else {				
 					(el.state === true) ? this.taskStr +=`<p class="hide"><span>${el.task}</span></p>`
 										: this.taskStr +=`<p class="hide">${el.task}</p>`;
+
+					this.navArrow.classList.remove("hide");
 				}
 			});
 		}	
@@ -135,37 +147,39 @@ class SheduleItem {
 	}
 
 	hideTasks(){
-		this.arr = this.sheduleItem.querySelectorAll("p");
+		this.arr = this.scheduleItem.querySelectorAll("p");
 		if(this.arr.length > 3) {
 			if(this.checkHiddenTask) {
 				for(let i = 3; i < this.arr.length; i++){
 					this.arr[i].classList.remove("hide");
 				}
 				this.checkHiddenTask = false;
+				this.navArrow.innerHTML = "<i class='fas fa-caret-up'></i>";
 
 			} else {
 				for(let i = 3; i < this.arr.length; i++){
 					this.arr[i].classList.add("hide");
 				}
-				this.checkHiddenTask = true;									
+				this.checkHiddenTask = true;
+				this.navArrow.innerHTML = "<i class='fas fa-caret-down'></i>";									
 			}
 		}					
 	}	
 }
 
 const todoCache = JSON.parse(localStorage.getItem("todoCache")) || {};
-const sheduleWrp = document.getElementById("shedule_wrp");
-const shedule = document.createElement("div");
-shedule.setAttribute("id", "shedule");
+const scheduleWrp = document.getElementById("schedule_wrp");
+const schedule = document.createElement("div");
+schedule.setAttribute("id", "schedule");
 
 for (let i = 0, day = (new Date().getTime() - (24 * 60 * 60 * 1000)); 
 		i < 8; 
 		i++, day += (24 * 60 * 60 * 1000)){
 
-		let sheduleItem = new SheduleItem(day, shedule);
+		let scheduleItem = new ScheduleItem(day, schedule);
 }
 
-sheduleWrp.appendChild(shedule);
+scheduleWrp.appendChild(schedule);
 
 // ========================================
 

@@ -1,6 +1,7 @@
 
 let db;
 window.onload = function() {
+  window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
   let request = window.indexedDB.open('habits', 1);
 
   request.onerror = function() {
@@ -52,13 +53,9 @@ const todayHeader = `${date} ${months[month].toLowerCase()}  ${year} (${days2[da
 const monthHeader = `${months[month]} ${year}`;
 
 let currentView = 'today'; 
- //document.getElementById('view-header').textContent = todayHeader;
 
 const toggleView = () => {
-  //document.getElementById('view-header').textContent = currentView === 'today' ? todayHeader : monthHeader;
-
   document.querySelectorAll('.view-option').forEach(viewoption => viewoption.classList.toggle('selected-view'));
-
   document.getElementById('today-view').classList.toggle('hidden');
   document.getElementById('month-view').classList.toggle('hidden');
 };
@@ -128,7 +125,7 @@ const addCheckboxCell = (habit, row) => {
 
   let dateKey = `${days2[day]} ${months2[month]} ${date} ${year}`;
 
-  let response = habit.history[dateKey]; // 'complete', 'incomplete', null/undefined
+  let response = habit.history[dateKey]; 
 
   if (response) {
     checkboxCell.classList.add(response);
@@ -177,8 +174,8 @@ const addDailyCells = (habit, row) => {
   const habitStartNumber = Number(`${habitStart.getFullYear()}${habitStart.getMonth()}${habitStart.getDate()}`);
   const habitEnd = habit.end;
   const habitEndNumber = Number(`${habitEnd.getFullYear()}${habitEnd.getMonth()}${habitEnd.getDate()}`);
-  console.log( `habit start ${habitStartNumber}`);
-  console.log( `habit end ${habitEndNumber}`);
+ // console.log( `habit start ${habitStartNumber}`);
+  //console.log( `habit end ${habitEndNumber}`);
   let currDay = startDay;
   for (let i = 1; i <= monthLength; i++) {
     let currDate = i;
@@ -220,9 +217,9 @@ const addDailyCells = (habit, row) => {
     }
     row.appendChild(cell);
 
-    // currDay++;
-    // console.log(currDay);
-    // if (currDay === 7) { currDay = 0 };
+    currDay++;
+    console.log(currDay);
+    if (currDay === 7) { currDay = 0 };
 
    
   }
@@ -237,9 +234,9 @@ function addHabit(e) {
   let endHabitDay = new Date();;
   endHabitDay.setDate(endHabitDay.getDate() + Number(titleCountDay));
   this.endday = endHabitDay.getDate();
-  console.log(titleCountDay);
-  console.log(endHabitDay);
-  console.log(this.endday);
+  //console.log(titleCountDay);
+  //console.log(endHabitDay);
+  //console.log(this.endday);
   const typeInput = 'daily';
   let newHabit = { title: titleInput, type: typeInput, history: {}, start: new Date(), countday: titleCountDay, end: endHabitDay };
   let transaction = db.transaction(['habits'], 'readwrite');
@@ -291,18 +288,34 @@ function updateHabit(habitId, dateKey) {
 
 /*-------------------------------endHabit()-----------------*/
 function endHabit(habitId, habitEnd) {
+  // let objectEndhabit = db.transaction(['habits'], 'readwrite').objectStore('habits');
+  // let objectEndRequest = objectEndhabit.get(habitId);
+
+
+  //  objectEndRequest.onsuccess = function() {
+  //   let habit = objectEndRequest.result;
+  //   console.log("endHabit" + habit);
+  //   let enfResponse = habit.end;
+  //   console.log("history" + enfResponse);
+     
+  //   alert( "Congratulations! Now you have a new habit!" );
+    
+  // }
   let objectEndhabit = db.transaction(['habits'], 'readwrite').objectStore('habits');
   let objectEndRequest = objectEndhabit.get(habitId);
-
+  let HabitDay = new Date();
+  let startday = HabitDay.getDate();
 
    objectEndRequest.onsuccess = function() {
     let habit = objectEndRequest.result;
-    console.log("endHabit" + habit);
+    console.log("start" + startday);
     let enfResponse = habit.end;
-    console.log("history" + enfResponse);
-     
-    alert( "Congratulations! Now you have a new habit!" );
+    let finishday = enfResponse.getDate();
+    console.log("history" + finishday);
     
+     if(startday == finishday){
+      alert( "Congratulations! Now you have a new habit! " );
+     }
   }
 } 
 //------------------------function deleteHabit(habitId)----------------//
