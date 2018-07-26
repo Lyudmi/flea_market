@@ -168,19 +168,27 @@ content weather date quotes
   /*-----------------------
 section#.dateAndWeather_wrp
 -------------------------*/
+.dateAndWeather_wrp {
+    width: 100%;
+    display: table;
+}
+
+.add_wrp {
+    display: table-row;
+}
 
 div#set_date {
-    width: calc((100% - 15px)/ 2);
-    display: inline-block;
+    width: calc((100% - 15px) / 2 + 15px);
+    display: table-cell;
     vertical-align: top;
     text-align: center;
-    margin-right: 15px;
+    border-right: 15px solid transparent;
 }
 
 #time {
     font-size: 34px;
     font-weight: 700;
-    line-height: 2.85em;
+    line-height: 3.37em;
     background-color: rgba(52, 70, 74, 1);
     border-radius: 7px 7px 0px 0px;
     -moz-border-radius: 7px 7px 0px 0px;
@@ -197,8 +205,8 @@ div#set_date {
 }
 
 div#set_weather {
-    width: calc((100% - 15px)/ 2);
-    display: inline-block;
+    width: calc((100% - 15px) / 2);
+    display: table-cell;
     vertical-align: top;
     text-align: center;
     background-color: rgba(52, 70, 74, 1);
