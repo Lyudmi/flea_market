@@ -103,7 +103,7 @@ th {
 
 #calendar2 thead tr:first-child {
 	font-size: 20px;
-	background-color: #ff8400;
+	background-color: #ffb366;
 	color: white;
 	transition: color 0.3s ease;
 	line-height: 1.4em;
@@ -142,7 +142,7 @@ table#calendar2 td {
 }
 
 #calendar2 tbody td.today {
-	background-color: #ff8400;
+	background-color:#ffb366;
 	font-weight: 700;
 	color: white;
 }
@@ -194,7 +194,7 @@ ul.todolist > span.close_list {
 }
 
 ul.todolist > span.close_list:hover {
-	color: #ff8400;
+	color: #ffb366;
 }
 
 ul.todolist > p {
@@ -241,8 +241,8 @@ ul.todolist > nav > label {
 
 ul.todolist > nav > button:hover,
 ul.todolist > nav > label:hover {
-	background-color: #ff8400;
-	border-color: #ff8400;
+	background-color:#ffb366;
+	border-color: #ffb366;
 	border-radius: 10px;
 	color: white;
 } 
@@ -297,7 +297,7 @@ li.todoitem:hover {
 li.todoitem:hover > button,
 li.todoitem:hover > label {
 	cursor: pointer;
-	background-color: #ff8400;
+	background-color: #ffb366;
 }
 
 li.todoitem > button:hover,
@@ -328,8 +328,8 @@ button#return_btn {
 	position: fixed;
 	right: 25px;
 	bottom: 20px;
-	background: #ff8400;
-	border:none;
+	background: #ffb366;
+	border:1px solid #ffb366;
 	outline: none;
 	transition: 0.3s ease;
 }
@@ -340,5 +340,5 @@ button#return_btn i {
 
 button#return_btn:hover {
 	color: white;
-	border:1px solid white;
+	border-color: white;
 }
