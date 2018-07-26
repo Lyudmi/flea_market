@@ -102,6 +102,7 @@ class List{
 	}
 
 	completeAll(){
+		this.cell = document.getElementById(`td${this.date}`);
 		if(this.checkCompleted !== true){
 			for (let i in todoCache[this.date]) {
 				todoCache[this.date][i].state = true;
@@ -134,6 +135,16 @@ class List{
 		}
 
 		localStorage.setItem("todoCache", JSON.stringify(todoCache));
+	}
+
+	changeCheckCompletedState(counter){
+		if(todoCache[this.date]){
+			let check = Object.keys(todoCache[this.date]).length;
+			if(counter === check){
+				this.completeAllLabel.innerHTML = "Uncomplete All";
+				this.checkCompleted = true;		
+			}
+		}
 	}
 }
 
@@ -252,7 +263,6 @@ class Task {
 				return (e.state === false)
 			});
 			if(!check){
-				console.log(this.cell);
 				if(this.cell){
 					this.cell.classList.remove("occupied");
 					this.cell.classList.add("all_completed");
@@ -283,7 +293,8 @@ class Task {
 			this.navBlock.classList.add("hide");
 			this.noTaskMesssage.classList.remove("hide");
 			if(this.cell) {
-                this.cell.classList.remove("occupied");
+				this.cell.classList.remove("occupied");
+				this.cell.classList.remove("all_completed");
 			}
 		} else {
 			todoCache[this.date] = this.taskObj;
@@ -329,6 +340,18 @@ class LoadTask extends Task{
 			this.noTaskMesssage.classList.remove("hide");
 		}		
 	}
+
+	countDone(){		
+		if(this.taskObj){
+			if(this.taskObj[`${this.stamp}`].state === true){
+				this.span.classList.add("done_task");
+				this.doneLable.classList.add("inp_checked");
+				this.editbtn.setAttribute("disabled", true);
+
+				return counter += 1;
+			}
+		}
+	}
 }
 
 function onTaskAdded(parent){	
@@ -364,6 +387,7 @@ function onTaskAdded(parent){
 }
 
 function onLoadTask(date, parent){
+	counter = 0;
 	if(!document.getElementById(date)) {
 		const ul = new List(date, parent);
 		if(!todoCache[date]){
@@ -377,8 +401,10 @@ function onLoadTask(date, parent){
 				text = todoCache[date][i].task;
 				state = todoCache[date][i].state;
 				let load = new LoadTask(date, stamp, text, state);
+				load.countDone();
 			}
 		}
+		ul.changeCheckCompletedState(counter);
 	}
 }
 

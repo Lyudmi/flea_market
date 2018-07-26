@@ -5,31 +5,20 @@ import apiKeys from "./config.json";
 // =======================
           
 export class LocationApi {
-    getMyIp () {
-        return fetch("https://api.ipify.org?format=json")
-        .then(res => {
-            if(res.status === 200){
-                return res.json();
-            }
-
-            return Promise.reject(res.status);
-        })
-    }
-
-    getMyLocation(my_ip){
+    getMyLocation(){
         const ipCache = JSON.parse(localStorage.getItem("ipCache")) || {};
-        if (ipCache[my_ip]) {
-            if (Date.now() - ipCache[my_ip].timestamp < 1000 * 60 * 20) {
-                return Promise.resolve(ipCache[my_ip].data);
+        if (ipCache["location"]) {
+            if (Date.now() - ipCache["location"].timestamp < 1000 * 60 * 20) {
+                return Promise.resolve(ipCache["location"].data);
 
             } else {
-                ipCache[my_ip] = null;
+                ipCache["location"] = null;
                 localStorage.setItem("ipCache", JSON.stringify(ipCache));
             }
         }
 
         
-        return fetch(`https://api.ipstack.com/${my_ip}?access_key=${apiKeys.locationApiKey}`)
+        return fetch(`http://ip-api.com/json`)
         .then(res => {
             if(res.status === 200){
                 return res.json();
@@ -39,7 +28,7 @@ export class LocationApi {
         })
 
         .then((data) => {
-                ipCache[my_ip] = {
+                ipCache["location"] = {
                     timestamp: Date.now(),
                     data,
                 };
@@ -59,9 +48,7 @@ export class LocalStorageApi {
     removeStorageItem(){
         for (let i = 0; i < localStorage.length; i++) {
             let key = localStorage.key(i);
-            // console.log(key);
             let keyValue =  JSON.parse(localStorage.getItem(key)); 
-            // console.log(keyValue);
             for (let j in keyValue) {
                 if (Date.now() - keyValue[j].timestamp > 1000 * 60 * 20) {
                     localStorage.removeItem(key);

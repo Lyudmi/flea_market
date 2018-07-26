@@ -1,6 +1,6 @@
 /*------------------
 *cd-left
-content shedule
+content schedule
 -------------------*/
 .cd-left {
     width: calc(100% - 80px - 45%);
@@ -11,24 +11,24 @@ content shedule
 }
 
 /*-----------------------
-section#shedule_wrp
+section#schedule_wrp
 -------------------------*/
 
-#shedule_wrp > h1 {
+#schedule_wrp > h1 {
 	font-size: 28px;
     margin-bottom: 40px;
     text-align: center;
     color: black;
 }
 
-#shedule {
+#schedule {
     width: 100%;
     margin-top: 25px;
     display: table;
     border-collapse: collapse;
 }
 
-.shedule_item {
+.schedule_item {
 	display: table-row;
     width: 100%;
     border-bottom: 1px solid white;
@@ -45,15 +45,15 @@ section#shedule_wrp
     transition: 0.3s ease;
 }
 
-div.shedule_item:first-child .task_date{
+div.schedule_item:first-child .task_date{
     background-color: grey;
 }
 
-div.shedule_item:nth-child(2) .task_date{
+div.schedule_item:nth-child(2) .task_date{
     background-color: #a15f62;
 }
 
-div.shedule_item:hover {
+div.schedule_item:hover {
     border-bottom-color: grey;
 }
 
@@ -76,19 +76,19 @@ span.day_month {
     padding: 15px 25px 10px 15px;
 }
 
-div.shedule_item:first-child .taskSet{
+div.schedule_item:first-child .taskSet{
    background-color:rgba(194, 194, 194, 0.3);
 }
 
-div.shedule_item:first-child .taskSet p {
+div.schedule_item:first-child .taskSet p {
    color: grey;
 }
 
-div.shedule_item:nth-child(2) .taskSet{
+div.schedule_item:nth-child(2) .taskSet{
     position: relative;
 }
 
-div.shedule_item:nth-child(2) .taskSet::after {
+div.schedule_item:nth-child(2) .taskSet::after {
     content: '';
     position: absolute;
     top: 50%;

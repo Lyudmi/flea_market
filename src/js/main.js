@@ -39,14 +39,17 @@ function loadDateAndLocation(){
     dom.showPreloader();
     date.setDate();
     storage.removeStorageItem();
-    loc.getMyIp()
-        .then(res => loc.getMyLocation(res.ip))
+    loc.getMyLocation()
         .then(res => weather.getWeather(res.city))
         .then(res => {
             dom.setLocation(res);
             dom.setWeatherMain(res);
             dom.hidePreloader();
-        });
+		})
+		.catch(rej => {
+			dom.hidePreloader();
+			console.log('Error:', rej);
+		})
 }
 
 window.onload = () => {
@@ -57,12 +60,12 @@ window.onload = () => {
 // SheduleItem
 // =========================
 
-class SheduleItem {
+class ScheduleItem {
 	constructor(day, parent){
 		this.date = new Date(day).toLocaleDateString().split(".").reverse().join("-");
 
-		this.sheduleItem = document.createElement("div");
-		this.sheduleItem.classList.add("shedule_item");
+		this.scheduleItem = document.createElement("div");
+		this.scheduleItem.classList.add("schedule_item");
 
 		this.weekday = document.createElement("span");
 		this.weekday.classList.add("weekday");
@@ -86,11 +89,11 @@ class SheduleItem {
 		this.setTasks();
 		this.setStatistic();
 		this.checkHiddenTask = true;
-		this.sheduleItem.onclick = this.hideTasks.bind(this);		
+		this.scheduleItem.onclick = this.hideTasks.bind(this);		
 
-		this.sheduleItem.appendChild(this.taskDate);
-		this.sheduleItem.appendChild(this.taskSet);		
-		parent.appendChild(this.sheduleItem);
+		this.scheduleItem.appendChild(this.taskDate);
+		this.scheduleItem.appendChild(this.taskSet);		
+		parent.appendChild(this.scheduleItem);
 	}
 
 	setDate(day){
@@ -135,7 +138,7 @@ class SheduleItem {
 	}
 
 	hideTasks(){
-		this.arr = this.sheduleItem.querySelectorAll("p");
+		this.arr = this.scheduleItem.querySelectorAll("p");
 		if(this.arr.length > 3) {
 			if(this.checkHiddenTask) {
 				for(let i = 3; i < this.arr.length; i++){
@@ -154,18 +157,18 @@ class SheduleItem {
 }
 
 const todoCache = JSON.parse(localStorage.getItem("todoCache")) || {};
-const sheduleWrp = document.getElementById("shedule_wrp");
-const shedule = document.createElement("div");
-shedule.setAttribute("id", "shedule");
+const scheduleWrp = document.getElementById("schedule_wrp");
+const schedule = document.createElement("div");
+schedule.setAttribute("id", "schedule");
 
 for (let i = 0, day = (new Date().getTime() - (24 * 60 * 60 * 1000)); 
 		i < 8; 
 		i++, day += (24 * 60 * 60 * 1000)){
 
-		let sheduleItem = new SheduleItem(day, shedule);
+		let scheduleItem = new ScheduleItem(day, schedule);
 }
 
-sheduleWrp.appendChild(shedule);
+scheduleWrp.appendChild(schedule);
 
 // ========================================
 
