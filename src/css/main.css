@@ -31,8 +31,6 @@ section#schedule_wrp
 .schedule_item {
 	display: table-row;
     width: 100%;
-    border-bottom: 1px solid white;
-
 }
 
 .task_date {
@@ -41,7 +39,7 @@ section#schedule_wrp
 	vertical-align: middle;
 	text-align: center;
     padding: 10px;
-    background-color:#83b0b9;
+    background-color:rgba(52, 70, 74, 1);
     transition: 0.3s ease;
 }
 
@@ -51,10 +49,6 @@ div.schedule_item:first-child .task_date{
 
 div.schedule_item:nth-child(2) .task_date{
     background-color: #a15f62;
-}
-
-div.schedule_item:hover {
-    border-bottom-color: grey;
 }
 
 span.weekday {
@@ -74,10 +68,12 @@ span.day_month {
 	width: calc(100% - 20%);
     vertical-align: middle;
     padding: 15px 25px 10px 15px;
+    border-bottom: 1px solid rgba(194, 194, 194, 0.7);
 }
 
 div.schedule_item:first-child .taskSet{
    background-color:rgba(194, 194, 194, 0.3);
+   border-bottom: 1px solid rgba(194, 194, 194, 0.3);
 }
 
 div.schedule_item:first-child .taskSet p {
@@ -96,6 +92,18 @@ div.schedule_item:nth-child(2) .taskSet::after {
     transform: translateY(-50%);
     border: 20px solid transparent;
     border-right: 20px solid #a15f62;
+}
+
+div.schedule_item:hover .taskSet {
+    border-bottom-color: white;
+}
+
+div.schedule_item:hover .navArrow > i {
+    color: white;
+}
+
+div.schedule_item:hover .task_date {
+    background-color:  #999999;
 }
 
 .task_row {
@@ -120,20 +128,31 @@ div.schedule_item:nth-child(2) .taskSet::after {
 }
 
 .statOutput {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 700;
     font-style: italic;
     color: #a15f62;
 }
 
 .statOutput > span.completed {
     font-weight: 700;
-    color: grey;
+    color:#2e5cb8;
 }
 
 .statOutput > span.total {
     font-weight: 700;
     color: #131519;
+}
+
+
+.navArrow i {
+    font-size: 16px;
+    font-weight: 700;
+    vertical-align: middle;
+    color:  #a15f62;
 }
 
 /*------------------
